@@ -5,7 +5,10 @@ import config
 
 # --- Fichiers statiques à télécharger ---
 STATIC_DOWNLOADS = {
-    # GeoJSON 2026
+    # GeoJSONs (Secteurs des bureaux de vote - Polygones)
+    config.GEOJSON_FILES["2020"]: "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/secteurs-des-bureaux-de-vote-en-2020/exports/geojson",
+    config.GEOJSON_FILES["2022"]: "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/secteurs-des-bureaux-de-vote/exports/geojson",
+    config.GEOJSON_FILES["2024"]: "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/secteurs-des-bureaux-de-vote-2024/exports/geojson",
     config.GEOJSON_FILES["2026"]: "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/secteurs-des-bureaux-de-vote-2026/exports/geojson",
     
     # Présidentielles 2022

@@ -181,7 +181,7 @@ function loadDashboard() {
   mapIframe.src = `outputs/${electionId}.html`;
   
   // Charger et traiter les données JSON
-  const jsonPath = `data/processed/${electionId}.json`;
+  const jsonPath = `../data/processed/${electionId}.json`;
   
   fetch(jsonPath)
     .then(res => {
