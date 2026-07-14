@@ -80,7 +80,10 @@ const bureauMap = new maplibregl.Map({
       },
       {
         id: "reu-lines", type: "line", source: "reu", "source-layer": BUREAU_SOURCE_LAYER, minzoom: 12,
-        paint: { "line-color": "rgba(255,255,255,0.65)", "line-width": ["interpolate", ["linear"], ["zoom"], 12, 0.4, 17, 1.5] }
+        paint: {
+          "line-color": ["case", ["boolean", ["feature-state", "selected"], false], "#f59e0b", "rgba(255,255,255,0.65)"],
+          "line-width": ["case", ["boolean", ["feature-state", "selected"], false], 3, ["interpolate", ["linear"], ["zoom"], 12, 0.4, 17, 1.5]]
+        }
       }
     ]
   }
@@ -149,8 +152,7 @@ async function loadVisibleDepartments() {
     const centerFeatures = getVisibleOfficeFeatures(bureauMap.project(bureauMap.getCenter()));
     const feature = centerFeatures[0];
     if (feature) {
-      selectedOfficeId = String(feature.properties.id_bv || feature.id);
-      renderOfficeDetails(selectedOfficeId);
+      selectOffice(String(feature.properties.id_bv || feature.id));
     }
   }
 }
@@ -166,6 +168,27 @@ function formatNumber(value) {
   return new Intl.NumberFormat("fr-FR").format(value || 0);
 }
 
+function getCommuneOfficeCount(insee) {
+  return Object.values(departmentData).reduce((count, offices) => (
+    count + Object.values(offices).filter(office => office.c === insee).length
+  ), 0);
+}
+
+function selectOffice(id) {
+  if (selectedOfficeId) {
+    bureauMap.setFeatureState(
+      { source: "reu", sourceLayer: BUREAU_SOURCE_LAYER, id: selectedOfficeId },
+      { selected: false }
+    );
+  }
+  selectedOfficeId = id;
+  bureauMap.setFeatureState(
+    { source: "reu", sourceLayer: BUREAU_SOURCE_LAYER, id: selectedOfficeId },
+    { selected: true }
+  );
+  renderOfficeDetails(selectedOfficeId);
+}
+
 function renderOfficeDetails(id) {
   const office = findOffice(id);
   const electionData = getElectionData(office);
@@ -175,6 +198,7 @@ function renderOfficeDetails(id) {
   }
 
   const [registered, voters, expressed, votes] = electionData;
+  const communeOfficeCount = getCommuneOfficeCount(office.c);
   const parties = BUREAU_ELECTIONS[selectedBureauElection].parties;
   const rows = votes.map((value, index) => ({
     party: parties[index], value, pct: expressed ? value / expressed * 100 : 0
@@ -182,7 +206,12 @@ function renderOfficeDetails(id) {
 
   detailsPanel.innerHTML = `
     <h2>${office.n}</h2>
-    <p class="bureau-meta">Bureau ${office.b} · INSEE ${office.c}</p>
+    <p class="bureau-meta">Bureau ${office.b} · INSEE ${office.c} · Secteur REU ${id}</p>
+    <div class="scope-badge ${communeOfficeCount === 1 ? "single" : "multiple"}">
+      ${communeOfficeCount === 1
+        ? "Commune à bureau unique : ce secteur recouvre donc toute la commune."
+        : `${formatNumber(communeOfficeCount)} bureaux dans cette commune · secteur ${office.b} sélectionné.`}
+    </div>
     <div class="metrics">
       <div class="metric"><span>Inscrits</span><strong>${formatNumber(registered)}</strong></div>
       <div class="metric"><span>Participation</span><strong>${registered ? (voters / registered * 100).toFixed(1) : "0.0"} %</strong></div>
@@ -208,8 +237,7 @@ bureauMap.on("click", "reu-fill", async event => {
   if (!feature) return;
   const depCode = normalizeDepartmentCode(feature.properties.codeDepartement);
   await loadDepartment(depCode);
-  selectedOfficeId = String(feature.properties.id_bv || feature.id);
-  renderOfficeDetails(selectedOfficeId);
+  selectOffice(String(feature.properties.id_bv || feature.id));
 });
 
 Array.from(electionPills.children).forEach(button => {

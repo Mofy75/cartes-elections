@@ -59,6 +59,9 @@ h1 { margin: 0; font-size: 1.8rem; }
 .bureau-details { margin-top: 18px; }
 .bureau-details h2 { margin: 0 0 4px; font-size: 1.25rem; }
 .bureau-meta { margin: 0 0 14px; color: var(--muted); font-size: 0.85rem; }
+.scope-badge { margin: 0 0 14px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; font-size: 0.78rem; line-height: 1.4; }
+.scope-badge.single { border-color: rgba(245, 158, 11, 0.45); color: #fcd34d; background: rgba(245, 158, 11, 0.1); }
+.scope-badge.multiple { border-color: rgba(56, 189, 248, 0.4); color: #7dd3fc; background: rgba(14, 165, 233, 0.1); }
 .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
 .metric { padding: 10px; border: 1px solid var(--border); border-radius: 12px; background: rgba(30, 41, 59, 0.65); }
 .metric span { display: block; color: var(--muted); font-size: 0.68rem; text-transform: uppercase; }
