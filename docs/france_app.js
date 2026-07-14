@@ -66,6 +66,26 @@ let departmentsGeoJSON = null; // Cache pour les départements
 const departmentCommunesCache = {}; // Cache pour les communes par département (depCode -> GeoJSON)
 const depCentroids = {}; // Cache des centroïdes de départements pour la proximité
 let currentDisplayedDep = null; // Code du département actuellement tracé à l'écran
+let routeSyncSuspended = false;
+let parisRedirectPending = false;
+
+const DEPARTMENT_ZOOM = 8;
+const VOTING_OFFICE_ZOOM = 12;
+
+// Centres approximatifs des arrondissements, utilisés uniquement pour transmettre
+// le bon code INSEE à la carte des bureaux de vote lorsque Paris (75056) est actif.
+const PARIS_ARRONDISSEMENT_CENTERS = [
+  ["75101", 48.8626, 2.3363], ["75102", 48.8683, 2.3428],
+  ["75103", 48.8630, 2.3591], ["75104", 48.8543, 2.3576],
+  ["75105", 48.8444, 2.3502], ["75106", 48.8491, 2.3329],
+  ["75107", 48.8565, 2.3124], ["75108", 48.8763, 2.3173],
+  ["75109", 48.8769, 2.3375], ["75110", 48.8761, 2.3611],
+  ["75111", 48.8591, 2.3780], ["75112", 48.8352, 2.4198],
+  ["75113", 48.8284, 2.3622], ["75114", 48.8331, 2.3264],
+  ["75115", 48.8413, 2.3003], ["75116", 48.8637, 2.2769],
+  ["75117", 48.8873, 2.3075], ["75118", 48.8926, 2.3444],
+  ["75119", 48.8871, 2.3848], ["75120", 48.8635, 2.4012]
+];
 
 // Éléments du DOM
 const loaderOverlay = document.getElementById("loader-overlay");
@@ -240,15 +260,144 @@ function initMap() {
   map.on('moveend', updateMapLayers);
 }
 
+function isParisInsee(insee) {
+  return insee === "75056" || /^751\d{2}$/.test(insee || "");
+}
+
+function getClosestParisArrondissement(center) {
+  let closest = "75056";
+  let minDistance = Infinity;
+  PARIS_ARRONDISSEMENT_CENTERS.forEach(([insee, lat, lng]) => {
+    const distance = center.distanceTo(L.latLng(lat, lng));
+    if (distance < minDistance) {
+      minDistance = distance;
+      closest = insee;
+    }
+  });
+  return closest;
+}
+
+function geometryContainsPoint(geometry, center) {
+  if (!geometry) return false;
+  const pointInRing = ring => {
+    let inside = false;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [xi, yi] = ring[i];
+      const [xj, yj] = ring[j];
+      const intersects = ((yi > center.lat) !== (yj > center.lat))
+        && (center.lng < ((xj - xi) * (center.lat - yi)) / (yj - yi) + xi);
+      if (intersects) inside = !inside;
+    }
+    return inside;
+  };
+  const pointInPolygon = polygon => pointInRing(polygon[0])
+    && !polygon.slice(1).some(pointInRing);
+
+  if (geometry.type === "Polygon") return pointInPolygon(geometry.coordinates);
+  if (geometry.type === "MultiPolygon") return geometry.coordinates.some(pointInPolygon);
+  return false;
+}
+
+function isCenterInsideDepartment(depCode, center) {
+  const feature = departmentsGeoJSON && departmentsGeoJSON.features.find(item => item.properties.code === depCode);
+  return Boolean(feature && geometryContainsPoint(feature.geometry, center));
+}
+
+function buildRoute(params = {}) {
+  const url = new URL(window.location.href);
+  url.search = "";
+  Object.entries(params).forEach(([key, value]) => {
+    if (value) url.searchParams.set(key, value);
+  });
+  return `${url.pathname}${url.search}`;
+}
+
+function getParisElectionParams() {
+  if (selectedElection === "pres_2022_t1") return { year: "2022", type: "presidentielles", tour: "t1" };
+  if (selectedElection === "pres_2022_t2") return { year: "2022", type: "presidentielles", tour: "t2" };
+  return { year: "2024", type: "europeennes", tour: "t1" };
+}
+
+function buildParisURL(insee) {
+  const params = new URLSearchParams({ insee, ...getParisElectionParams() });
+  return `paris.html?${params.toString()}`;
+}
+
+function updateParisButton(insee) {
+  if (!btnParisBureau) return;
+  if (isParisInsee(insee)) {
+    btnParisBureau.href = buildParisURL(insee);
+    btnParisBureau.style.display = "flex";
+  } else {
+    btnParisBureau.style.display = "none";
+  }
+}
+
+function syncDepartmentRoute(depCode) {
+  if (routeSyncSuspended) return;
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("insee")) return;
+
+  const previousDep = params.get("dep");
+  if (previousDep === depCode) return;
+
+  const state = { dep: depCode };
+  const url = buildRoute({ dep: depCode });
+  // La première entrée dans un département reste accessible via Retour. Les
+  // changements dus au panoramique remplacent ensuite cette unique entrée.
+  if (previousDep) {
+    history.replaceState(state, "", url);
+  } else {
+    history.pushState(state, "", url);
+  }
+}
+
+function clearDepartmentRoute() {
+  if (routeSyncSuspended) return;
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("dep") && !params.get("insee")) {
+    history.replaceState({ insee: "00000" }, "", buildRoute());
+  }
+}
+
+function suspendRouteSyncForMapMove(moveMap) {
+  routeSyncSuspended = true;
+  let released = false;
+  const release = () => {
+    if (released) return;
+    released = true;
+    routeSyncSuspended = false;
+  };
+  map.once("moveend", release);
+  moveMap();
+  // Certains appels Leaflet ne déclenchent aucun événement si la vue demandée
+  // est déjà active.
+  window.setTimeout(release, 1000);
+}
+
+function redirectToParisVotingOffices(forcedInsee = null) {
+  if (parisRedirectPending || (!forcedInsee && !isParisInsee(activeInsee))) return;
+  parisRedirectPending = true;
+  const targetInsee = forcedInsee || (activeInsee === "75056"
+    ? getClosestParisArrondissement(map.getCenter())
+    : activeInsee);
+  window.location.assign(buildParisURL(targetInsee));
+}
+
 // Gérer l'affichage multiniveau dynamique basé sur le niveau de zoom
 async function updateMapLayers() {
   if (activeInsee !== "00000") {
-    // Si une commune spécifique est affichée, on n'altère pas sa géométrie isolée
+    // À Paris, le niveau de zoom suivant ouvre la carte réellement disponible
+    // à l'échelle des bureaux de vote.
+    if (map.getZoom() >= VOTING_OFFICE_ZOOM && isParisInsee(activeInsee)) {
+      redirectToParisVotingOffices();
+    }
     return;
   }
   
   const zoom = map.getZoom();
-  if (zoom < 8) {
+  if (zoom < DEPARTMENT_ZOOM) {
+    clearDepartmentRoute();
     // Échelle Nationale : Départements
     if (currentDisplayedDep !== null || !polygonLayer) {
       currentDisplayedDep = null;
@@ -258,9 +407,18 @@ async function updateMapLayers() {
     // Échelle Intermédiaire : Communes du département sous le centre de la carte
     const center = map.getCenter();
     const closestDep = getClosestDepartment(center);
-    if (closestDep && closestDep !== currentDisplayedDep) {
-      currentDisplayedDep = closestDep;
-      await loadCommunesLayer(closestDep);
+    if (closestDep) {
+      syncDepartmentRoute(closestDep);
+      // Paris est le seul territoire actuellement doté de contours de bureaux.
+      // Le zoom seul suffit : aucun clic préalable sur la commune n'est requis.
+      if (zoom >= VOTING_OFFICE_ZOOM && closestDep === "75" && isCenterInsideDepartment("75", center)) {
+        redirectToParisVotingOffices(getClosestParisArrondissement(center));
+        return;
+      }
+      if (closestDep !== currentDisplayedDep) {
+        currentDisplayedDep = closestDep;
+        await loadCommunesLayer(closestDep);
+      }
     }
   }
 }
@@ -326,6 +484,7 @@ async function loadDepartmentsLayer() {
       // Zoomer au clic sur le département
       layer.on("click", () => {
         map.fitBounds(layer.getBounds());
+        if (map.getZoom() < DEPARTMENT_ZOOM) map.setZoom(DEPARTMENT_ZOOM);
       });
     }
   }).addTo(map);
@@ -465,7 +624,7 @@ function initSearch() {
 // Gérer la mise à jour de l'adresse URL
 function updateURL(insee, push = true) {
   if (push) {
-    const url = insee === "00000" ? window.location.pathname : `?insee=${insee}`;
+    const url = insee === "00000" ? buildRoute() : buildRoute({ insee });
     history.pushState({ insee }, "", url);
   }
 }
@@ -480,7 +639,7 @@ async function selectCommune(insee, pushToHistory = true) {
   if (insee === "00000") {
     // Mode France Entière
     btnResetFrance.style.display = "none";
-    if (btnParisBureau) btnParisBureau.style.display = "none";
+    updateParisButton("00000");
     
     infoCard.classList.remove("hidden");
     infoName.textContent = "France entière";
@@ -493,13 +652,7 @@ async function selectCommune(insee, pushToHistory = true) {
     currentDisplayedDep = null; // Forcer la suppression de la couche départementale/communale
     
     // Activer le bouton de redirection vers Paris si applicable
-    if (btnParisBureau) {
-      if (insee === "75056" || insee.startsWith("751")) {
-        btnParisBureau.style.display = "flex";
-      } else {
-        btnParisBureau.style.display = "none";
-      }
-    }
+    updateParisButton(insee);
 
     try {
       const geoUrl = `https://geo.api.gouv.fr/communes/${insee}?format=geojson&geometry=contour`;
@@ -676,7 +829,8 @@ Array.from(electionPills.children).forEach(btn => {
       b.classList.toggle("active", b.dataset.election === selectedElection);
     });
     if (activeInsee) {
-      selectCommune(activeInsee);
+      updateParisButton(activeInsee);
+      selectCommune(activeInsee, false);
     }
   };
 });
@@ -685,15 +839,12 @@ Array.from(electionPills.children).forEach(btn => {
 btnResetFrance.onclick = () => {
   activeInsee = "00000";
   searchInput.value = "";
+  suspendRouteSyncForMapMove(() => map.setView([46.2276, 2.2137], 6));
   selectCommune("00000");
 };
 
 // Gérer la navigation par historique du navigateur (Précédent / Suivant)
-window.onpopstate = (event) => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const insee = urlParams.get('insee') || '00000';
-  activeInsee = insee;
-  
+function showRouteInfo(insee) {
   if (insee === "00000") {
     searchInput.value = "";
     infoCard.classList.remove("hidden");
@@ -706,18 +857,53 @@ window.onpopstate = (event) => {
     infoName.textContent = data.n;
     infoDep.textContent = `Département : ${data.d} | Code INSEE : ${insee}`;
   }
-  
-  selectCommune(insee, false);
+}
+
+async function focusDepartment(depCode) {
+  activeInsee = "00000";
+  updateParisButton("00000");
+  await loadDepartmentsLayer();
+  const feature = departmentsGeoJSON && departmentsGeoJSON.features.find(item => item.properties.code === depCode);
+  if (!feature) return false;
+
+  const bounds = L.geoJSON(feature).getBounds();
+  currentDisplayedDep = depCode;
+  suspendRouteSyncForMapMove(() => {
+    map.fitBounds(bounds, { padding: [20, 20], maxZoom: 9 });
+    if (map.getZoom() < DEPARTMENT_ZOOM) map.setZoom(DEPARTMENT_ZOOM);
+  });
+  await loadCommunesLayer(depCode);
+  return true;
+}
+
+window.onpopstate = async () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const insee = urlParams.get("insee") || "00000";
+  const dep = urlParams.get("dep");
+  activeInsee = insee;
+
+  showRouteInfo(insee);
+  if (dep && insee === "00000") {
+    await focusDepartment(dep);
+    updateStatsUI();
+    return;
+  }
+
+  if (insee === "00000") {
+    suspendRouteSyncForMapMove(() => map.setView([46.2276, 2.2137], 6));
+  }
+  await selectCommune(insee, false);
 };
 
 // Lancement au chargement de la page
-window.onload = () => {
+window.onload = async () => {
   initMap();
   initSearch();
   
   // Lire les paramètres INSEE de l'URL au premier chargement
   const urlParams = new URLSearchParams(window.location.search);
   const insee = urlParams.get('insee') || '00000';
+  const dep = urlParams.get("dep");
   
   if (insee !== "00000" && FRANCE_STATS[insee]) {
     const data = FRANCE_STATS[insee];
@@ -727,7 +913,13 @@ window.onload = () => {
     infoDep.textContent = `Département : ${data.d} | Code INSEE : ${insee}`;
   }
   
-  selectCommune(insee, false);
+  showRouteInfo(insee);
+  if (dep && insee === "00000") {
+    await focusDepartment(dep);
+    updateStatsUI();
+  } else {
+    await selectCommune(insee, false);
+  }
   
   // Masquer le loader
   showLoader(false);

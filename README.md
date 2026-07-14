@@ -80,14 +80,16 @@ Pour explorer les résultats et les cartes interactives :
 1. Ouvrez simplement le fichier [docs/index.html](docs/index.html) dans n'importe quel navigateur internet moderne.
 2. Le tableau de bord affiche un menu de sélection interactif (Année, Élection, Scrutin/Tour) et met à jour dynamiquement la carte ainsi que le panneau des statistiques consolidées à l'échelle de Paris (avec graphiques en anneau via Chart.js).
 
-## 🛠️ Feuille de Route & Chantiers
-Voici les chantiers en cours pour le module **France Vote** :
+## 🛠️ Cartographie Multiniveau & Routage
+Le module **France Vote** propose désormais :
 1. **Cartographie dynamique multiniveau basée sur le Zoom** :
    - **Échelle Nationale (Zoom < 8)** : Affichage coloré par **départements** (chargement local).
    - **Échelle Communale (Zoom >= 8)** : Chargement dynamique des contours géométriques de toutes les **communes** du département au centre de la carte (via l'API Géo) et coloriage à la volée selon les résultats locaux de `FRANCE_STATS`.
-   - **Échelle Bureau de vote** : Intégration de la redirection ou du message pour le niveau bureau de vote (actuellement réservé à Paris en raison de l'absence de base de données géographique unifiée nationale des bureaux de vote en France).
+   - **Échelle Bureau de vote** : À Paris, un zoom rapproché ouvre automatiquement la carte des bureaux de vote et cadre l'arrondissement visé. Ce niveau reste réservé à Paris en raison de l'absence de base géographique nationale unifiée des bureaux de vote.
 2. **Routage URL & Navigation (Boutons Suivant/Précédent du navigateur)** :
+   - Mise à jour de l'adresse avec `?dep=XX` au niveau départemental, sans multiplier les entrées d'historique pendant les déplacements de carte.
    - Mise à jour de l'adresse URL (`?insee=XXXXX` ou hash) lors du choix ou de la recherche d'une commune.
+   - Transmission de l'arrondissement et du scrutin à la carte parisienne (`paris.html?insee=751XX&year=...`).
    - Écoute des événements `popstate` pour permettre à l'utilisateur d'utiliser les boutons **Précédent** et **Retour** du navigateur pour naviguer dans l'historique de recherche des communes.
 
 ## 📄 Licence

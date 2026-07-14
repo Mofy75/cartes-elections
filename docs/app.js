@@ -88,9 +88,15 @@ const VALID_OPTIONS = {
 };
 
 // State Variables
-let selectedYear = "2026";
-let selectedType = "municipales";
-let selectedTour = "t1";
+const initialParams = new URLSearchParams(window.location.search);
+const requestedInsee = initialParams.get("insee") || "75056";
+const requestedYear = initialParams.get("year");
+const requestedType = initialParams.get("type");
+const requestedTour = initialParams.get("tour");
+
+let selectedYear = VALID_OPTIONS[requestedYear] ? requestedYear : "2026";
+let selectedType = requestedType || "municipales";
+let selectedTour = requestedTour || "t1";
 let selectedLayer = "winner"; // 'winner' ou 'abstention'
 let myChart = null;
 
@@ -183,6 +189,14 @@ function formatNumber(num) {
 function loadDashboard() {
   showLoader(true);
   const electionId = getElectionId(selectedYear, selectedType, selectedTour);
+
+  const url = new URL(window.location.href);
+  url.search = "";
+  url.searchParams.set("insee", requestedInsee);
+  url.searchParams.set("year", selectedYear);
+  url.searchParams.set("type", selectedType);
+  url.searchParams.set("tour", selectedTour);
+  history.replaceState({ insee: requestedInsee, electionId }, "", `${url.pathname}${url.search}`);
   
   // Mettre à jour l'iframe avec cache-busting (?t=...) pour forcer le rechargement local
   mapIframe.src = `outputs/${electionId}.html?t=${Date.now()}`;
@@ -199,7 +213,48 @@ mapIframe.onload = () => {
   showLoader(false);
   // Envoyer la couche active à l'iframe
   mapIframe.contentWindow.postMessage({action: "select_layer", layer: selectedLayer}, "*");
+  focusRequestedArrondissement();
 };
+
+function focusRequestedArrondissement() {
+  const match = /^751(\d{2})$/.exec(requestedInsee);
+  if (!match) return;
+
+  try {
+    const iframeWindow = mapIframe.contentWindow;
+    const leaflet = iframeWindow.L;
+    if (!leaflet) return;
+
+    const arrondissement = Number(match[1]);
+    const bounds = leaflet.latLngBounds([]);
+    Object.keys(iframeWindow)
+      .filter(key => key.startsWith("geo_json_"))
+      .map(key => iframeWindow[key])
+      .forEach(value => {
+      if (!(value instanceof leaflet.GeoJSON)) return;
+      value.eachLayer(layer => {
+        const properties = layer.feature && layer.feature.properties;
+        const layerArrondissement = properties && [
+          properties.arrondissement_x,
+          properties.arrondissement_y,
+          properties.arrondissement,
+          properties.arrondissement_bv
+        ].map(Number).find(value => value >= 1 && value <= 20);
+        if (Number(layerArrondissement) === arrondissement && typeof layer.getBounds === "function") {
+          bounds.extend(layer.getBounds());
+        }
+      });
+    });
+
+    const mapKey = Object.keys(iframeWindow).find(key => key.startsWith("map_") && iframeWindow[key] instanceof leaflet.Map);
+    const parisMap = mapKey ? iframeWindow[mapKey] : null;
+    if (parisMap && bounds.isValid()) {
+      parisMap.fitBounds(bounds, { padding: [20, 20], maxZoom: 15 });
+    }
+  } catch (error) {
+    console.warn("Impossible de cadrer automatiquement l’arrondissement :", error);
+  }
+}
 
 function displayStatsDirectly(stats) {
   const totalInscrits = stats.totalInscrits;
