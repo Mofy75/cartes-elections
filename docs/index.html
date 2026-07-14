@@ -2,53 +2,114 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Carte – Municipales 2020 à Paris</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px auto;
-      max-width: 800px;
-      line-height: 1.6;
-      color: #333;
-    }
-    h1 {
-      color: #b30000;
-    }
-    a.button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 20px;
-      background-color: #b30000;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-    a.button:hover {
-      background-color: #8a0000;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paris Vote – Cartographie Électorale Interactive (2020-2026)</title>
+  <meta name="description" content="Découvrez les résultats détaillés de toutes les élections parisiennes (municipales, présidentielles, législatives, européennes) de 2020 à 2026 par bureau de vote avec notre carte interactive et dashboard premium.">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Chart.js CDN for interactive doughnut chart -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  
+  <!-- JS Logic -->
+  <script src="app.js" defer></script>
 </head>
 <body>
 
-  <h1>Carte interactive – Élections municipales 2020 à Paris</h1>
+  <!-- Sidebar Controls -->
+  <aside class="sidebar">
+    <div class="logo-container">
+      <div class="logo-icon">🗼</div>
+      <h1 class="logo-text">Paris Vote</h1>
+    </div>
 
-  <p>
-    Cette carte représente les résultats du <strong>premier tour des municipales de 2020</strong>, bureau de vote par bureau de vote, à Paris.
-  </p>
+    <!-- Year Selector -->
+    <div class="control-group">
+      <span class="control-label">Année</span>
+      <div class="selector-pills" id="year-pills">
+        <!-- Dyn. generated -->
+      </div>
+    </div>
 
-  <h2>📌 Ce que montre la carte</h2>
-  <ul>
-    <li><strong>Vote majoritaire :</strong> chaque polygone représente un bureau de vote, coloré selon la famille politique arrivée en tête. En survolant, on peut voir le score du gagnant et le détail par famille politique.</li>
-    <li><strong>Taux d’abstention :</strong> une seconde couche affiche l’abstention par bureau, avec une échelle de couleurs du beige clair (faible abstention) au rouge sombre (forte abstention).</li>
-  </ul>
+    <!-- Election Type Selector -->
+    <div class="control-group">
+      <span class="control-label">Élection</span>
+      <div class="selector-pills" id="type-pills">
+        <!-- Dyn. generated -->
+      </div>
+    </div>
 
-  <p>
-    Les données sont extraites des résultats officiels de la Ville de Paris, traitées puis superposées aux géométries des bureaux de vote de 2020.
-  </p>
+    <!-- Tour Selector -->
+    <div class="control-group">
+      <span class="control-label">Scrutin</span>
+      <div class="selector-pills" id="tour-pills">
+        <!-- Dyn. generated -->
+      </div>
+    </div>
 
-  <a class="button" href="outputs/1er_tour_municipales_2020.html" target="_blank">👉 Voir la carte interactive</a>
+    <!-- Sidebar Footer -->
+    <footer class="sidebar-footer">
+      <p>Visualisation cartographique par bureau de vote.</p>
+      <p style="margin-top: 6px;">Données sources : <a href="https://opendata.paris.fr" target="_blank">Paris Data</a> &amp; <a href="https://data.gouv.fr" target="_blank">data.gouv.fr</a>.</p>
+    </footer>
+  </aside>
+
+  <!-- Main View Area -->
+  <main class="main-content">
+    
+    <!-- Top Statistics Cards -->
+    <header class="top-bar">
+      <!-- Winner Card -->
+      <div class="metric-card" id="card-winner">
+        <span class="label">Majorité globale</span>
+        <span class="value" id="stat-winner-name">Chargement...</span>
+        <span class="subtext" id="stat-winner-score">--%</span>
+      </div>
+
+      <!-- Turnout Card -->
+      <div class="metric-card" id="card-turnout">
+        <span class="label">Participation</span>
+        <span class="value" id="stat-turnout">--%</span>
+        <span class="subtext">Taux de participation à Paris</span>
+      </div>
+
+      <!-- Voters Card -->
+      <div class="metric-card" id="card-voters">
+        <span class="label">Électeurs inscrits</span>
+        <span class="value" id="stat-total-inscrits">--</span>
+        <span class="subtext"><span id="stat-exprimes">--</span> exprimés</span>
+      </div>
+    </header>
+
+    <!-- Map & Stats Panel Split Grid -->
+    <div class="dashboard-grid">
+      
+      <!-- Interactive Map Frame -->
+      <section class="map-container">
+        <div class="loader-overlay" id="loader-overlay">
+          <div class="spinner"></div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; font-weight: 500;">Génération de la carte...</p>
+        </div>
+        <iframe class="map-iframe" id="map-iframe" src="about:blank"></iframe>
+      </section>
+
+      <!-- Stats Panel -->
+      <section class="stats-panel">
+        <h2 class="panel-title">Résultats globaux (Paris)</h2>
+        
+        <!-- Doughnut Chart Container -->
+        <div class="chart-container">
+          <canvas id="results-chart"></canvas>
+        </div>
+        
+        <!-- Detailed Party Rankings List -->
+        <div class="party-results-list" id="results-list">
+          <!-- Dyn. generated rows -->
+        </div>
+      </section>
+    </div>
+  </main>
 
 </body>
 </html>
-
