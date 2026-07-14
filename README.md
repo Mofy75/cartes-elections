@@ -1,6 +1,6 @@
-# Cartes Électorales Paris (2020 - 2026)
+# France Vote – Cartographie électorale (2020 - 2026)
 
-Ce dépôt contient une suite d'outils Python et un tableau de bord web interactif permettant de visualiser et d'analyser les résultats des différentes élections à Paris (par bureau de vote) sur la période 2020-2026.
+Ce dépôt contient une suite d'outils Python et un tableau de bord web interactif permettant de visualiser et d'analyser les résultats électoraux en France, de l'échelle nationale jusqu'aux communes et bureaux de vote. Un module spécialisé conserve les contours officiels détaillés de Paris sur la période 2020-2026.
 
 ## 🌐 Aperçu du Projet
 Le projet compile les résultats et propose des cartes interactives détaillées pour les scrutins suivants :
@@ -25,11 +25,15 @@ cartes-elections/
 │   ├── index.html         # Tableau de bord principal (Interface Premium)
 │   ├── style.css          # Design et chartes graphiques du dashboard
 │   ├── app.js             # Logique d'affichage dynamique et graphiques Chart.js
+│   ├── bureau.html        # Carte nationale des secteurs de bureaux de vote (PMTiles)
+│   ├── bureau_app.js      # Chargement des résultats compacts par département
+│   ├── bureaux_data/      # Résultats nationaux compactés par département
 │   └── outputs/           # Cartes Folium HTML générées par le script
 └── scripts/
     ├── config.py          # Centralisation des couleurs des nuances et des répertoires
     ├── download_data.py   # Téléchargement automatique des sources (Paris Open Data / data.gouv.fr)
     ├── process_data.py    # Alignement géographique et d'appariement candidat-nuance
+    ├── build_bureau_data.py # Jointure MIOM / REU et génération des fichiers nationaux
     └── build_maps.py      # Génération des cartes Folium interactives
 ```
 
@@ -85,12 +89,20 @@ Le module **France Vote** propose désormais :
 1. **Cartographie dynamique multiniveau basée sur le Zoom** :
    - **Échelle Nationale (Zoom < 8)** : Affichage coloré par **départements** (chargement local).
    - **Échelle Communale (Zoom >= 8)** : Chargement dynamique des contours géométriques de toutes les **communes** du département au centre de la carte (via l'API Géo) et coloriage à la volée selon les résultats locaux de `FRANCE_STATS`.
-   - **Échelle Bureau de vote** : À Paris, un zoom rapproché ouvre automatiquement la carte des bureaux de vote et cadre l'arrondissement visé. Ce niveau reste réservé à Paris en raison de l'absence de base géographique nationale unifiée des bureaux de vote.
+   - **Échelle Bureau de vote (Zoom >= 12)** : En métropole, un zoom rapproché ouvre la vue nationale des bureaux, colorée avec les résultats 2022/2024. Paris conserve ses contours municipaux officiels dédiés.
 2. **Routage URL & Navigation (Boutons Suivant/Précédent du navigateur)** :
    - Mise à jour de l'adresse avec `?dep=XX` au niveau départemental, sans multiplier les entrées d'historique pendant les déplacements de carte.
    - Mise à jour de l'adresse URL (`?insee=XXXXX` ou hash) lors du choix ou de la recherche d'une commune.
    - Transmission de l'arrondissement et du scrutin à la carte parisienne (`paris.html?insee=751XX&year=...`).
+   - Transmission de la commune, du scrutin et du centre cartographique à la vue nationale (`bureau.html?insee=XXXXX&election=...`).
    - Écoute des événements `popstate` pour permettre à l'utilisateur d'utiliser les boutons **Précédent** et **Retour** du navigateur pour naviguer dans l'historique de recherche des communes.
+
+### Sources du niveau bureau
+
+- Résultats par bureau : Ministère de l'Intérieur, agrégés et normalisés par data.gouv.fr.
+- Correspondance des identifiants : table des bureaux du Répertoire électoral unique (Insee).
+- Géométrie nationale : proposition de contours data.gouv.fr calculée à partir des adresses du REU 2022. Ces secteurs sont des estimations et ne font pas autorité.
+- Couverture raccordée : 66 660 bureaux métropolitains. Les secteurs sans correspondance fiable restent visibles en gris.
 
 ## 📄 Licence
 Projet personnel d’analyse électorale. Tous droits réservés.

@@ -68,6 +68,7 @@ const depCentroids = {}; // Cache des centroïdes de départements pour la proxi
 let currentDisplayedDep = null; // Code du département actuellement tracé à l'écran
 let routeSyncSuspended = false;
 let parisRedirectPending = false;
+let nationalBureauRedirectPending = false;
 
 const DEPARTMENT_ZOOM = 8;
 const VOTING_OFFICE_ZOOM = 12;
@@ -258,6 +259,14 @@ function initMap() {
   // Mettre à jour l'affichage dynamique lors du zoom ou du déplacement de carte
   map.on('zoomend', updateMapLayers);
   map.on('moveend', updateMapLayers);
+  // Après un retour navigateur depuis une vue bureau conservée dans le bfcache,
+  // une nouvelle interaction utilisateur doit pouvoir déclencher une navigation.
+  const armVotingOfficeNavigation = () => {
+    parisRedirectPending = false;
+    nationalBureauRedirectPending = false;
+  };
+  map.on('zoomstart', armVotingOfficeNavigation);
+  map.on('movestart', armVotingOfficeNavigation);
 }
 
 function isParisInsee(insee) {
@@ -323,6 +332,24 @@ function buildParisURL(insee) {
   return `paris.html?${params.toString()}`;
 }
 
+function buildBureauURL(insee) {
+  const center = map.getCenter();
+  const params = new URLSearchParams({
+    insee,
+    election: selectedElection,
+    lat: center.lat.toFixed(6),
+    lng: center.lng.toFixed(6),
+    zoom: String(Math.max(13, map.getZoom()))
+  });
+  return `bureau.html?${params.toString()}`;
+}
+
+function getCommuneAtCenter(depCode, center) {
+  const geojson = departmentCommunesCache[depCode];
+  const feature = geojson && geojson.features.find(item => geometryContainsPoint(item.geometry, center));
+  return feature ? feature.properties.code : null;
+}
+
 function updateParisButton(insee) {
   if (!btnParisBureau) return;
   if (isParisInsee(insee)) {
@@ -384,6 +411,12 @@ function redirectToParisVotingOffices(forcedInsee = null) {
   window.location.assign(buildParisURL(targetInsee));
 }
 
+function redirectToNationalVotingOffices(insee) {
+  if (nationalBureauRedirectPending || !insee) return;
+  nationalBureauRedirectPending = true;
+  window.location.assign(buildBureauURL(insee));
+}
+
 // Gérer l'affichage multiniveau dynamique basé sur le niveau de zoom
 async function updateMapLayers() {
   if (activeInsee !== "00000") {
@@ -391,6 +424,8 @@ async function updateMapLayers() {
     // à l'échelle des bureaux de vote.
     if (map.getZoom() >= VOTING_OFFICE_ZOOM && isParisInsee(activeInsee)) {
       redirectToParisVotingOffices();
+    } else if (map.getZoom() >= VOTING_OFFICE_ZOOM) {
+      redirectToNationalVotingOffices(activeInsee);
     }
     return;
   }
@@ -418,6 +453,9 @@ async function updateMapLayers() {
       if (closestDep !== currentDisplayedDep) {
         currentDisplayedDep = closestDep;
         await loadCommunesLayer(closestDep);
+      }
+      if (zoom >= VOTING_OFFICE_ZOOM) {
+        redirectToNationalVotingOffices(getCommuneAtCenter(closestDep, center));
       }
     }
   }

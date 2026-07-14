@@ -36,11 +36,18 @@ L'application est structurée sous forme de site statique dans le dossier `docs/
 ---
 
 ### 🔍 2. Zoom jusqu'au niveau Bureau de Vote (Redirection vers Paris)
-* **Contexte** : Il n'existe pas de base de données géographique unifiée nationale représentant les bureaux de vote pour toute la France. La granularité bureau de vote n'est disponible que pour Paris dans le fichier `paris.html`.
+* **Contexte actualisé** : data.gouv.fr diffuse désormais une proposition nationale de contours issue du REU 2022. Ces contours estimés sont chargés en PMTiles dans `bureau.html`; Paris conserve son découpage municipal officiel dans `paris.html`.
 * **Comportement attendu** :
   - Si un utilisateur est sur la carte nationale `france.html`, sélectionne Paris (INSEE `75056` ou un arrondissement `751XX`) et continue de zoomer très près (zoom >= 12), l'application doit effectuer une **redirection automatique** vers la carte détaillée de Paris `paris.html`.
   - **Transmission des paramètres** : Lors de la redirection, l'arrondissement sélectionné doit être transmis à `paris.html` dans les paramètres d'URL (ou hash) afin que la carte de Paris s'ouvre directement sur le bon arrondissement et le bon scrutin (ex: `paris.html?insee=75105`).
   - **Bouton Retour** : La navigation entre les deux pages HTML doit préserver l'historique. L'utilisateur doit pouvoir cliquer sur le bouton **Retour** de son navigateur depuis `paris.html` pour revenir instantanément sur la commune de Paris dans `france.html`.
+
+### 3. Niveau bureau national
+
+- Hors Paris, un zoom `>= 12` ouvre `bureau.html` en conservant la commune, le scrutin et le centre de carte dans l'URL.
+- Les contours sont servis à la demande depuis le PMTiles national de data.gouv.fr.
+- Les résultats compactés de `docs/bureaux_data/` sont chargés uniquement pour les départements visibles.
+- La jointure MIOM / REU couvre 66 660 bureaux métropolitains. Un secteur non raccordé est conservé en gris et explicitement signalé comme indisponible.
 
 ---
 

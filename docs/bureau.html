@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>France Vote – Résultats par bureau de vote</title>
+  <meta name="description" content="Explorez les résultats électoraux nationaux à l’échelle des bureaux de vote.">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="bureau_style.css">
+  <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js" defer></script>
+  <script src="https://unpkg.com/pmtiles@2.7.0/dist/index.js" defer></script>
+  <script src="bureau_app.js" defer></script>
+</head>
+<body>
+  <main id="bureau-map" aria-label="Carte nationale des bureaux de vote"></main>
+
+  <aside class="bureau-panel">
+    <button id="btn-back" class="back-button" type="button">← Revenir à la carte communale</button>
+    <p class="eyebrow">France Vote</p>
+    <h1>Détail par bureau</h1>
+    <p class="intro">Zoomez et cliquez sur un secteur pour afficher ses résultats.</p>
+
+    <div class="election-selector" id="bureau-election-pills">
+      <button class="election-button active" data-election="pres_2022_t1">Présidentielle 2022 · T1</button>
+      <button class="election-button" data-election="pres_2022_t2">Présidentielle 2022 · T2</button>
+      <button class="election-button" data-election="euro_2024">Européennes 2024</button>
+    </div>
+
+    <div id="bureau-loading" class="loading-message">Chargement des secteurs visibles…</div>
+    <section id="bureau-details" class="bureau-details" aria-live="polite">
+      <p class="empty-state">Sélectionnez un bureau de vote sur la carte.</p>
+    </section>
+
+    <p class="data-warning">Les contours nationaux sont des estimations construites à partir du REU 2022. Ils ne constituent pas un découpage administratif officiel.</p>
+  </aside>
+</body>
+</html>
