@@ -60,6 +60,7 @@ let activeInsee = "00000"; // France entière par défaut
 let map = null;
 let polygonLayer = null;
 let myChart = null;
+let departmentsGeoJSON = null; // Cache pour le tracé de la France
 
 // Éléments du DOM
 const loaderOverlay = document.getElementById("loader-overlay");
@@ -114,6 +115,51 @@ function getElectionVotes(communeStats, electionKey) {
   
   candidatesOrder.forEach((c, idx) => {
     votesObj[c] = votesArray[idx] || 0;
+  });
+  
+  return {
+    inscrits,
+    votants,
+    exprimes,
+    votes: votesObj
+  };
+}
+
+// Agréger les données par département à partir des communes
+function getDepartmentVotes(depCode, electionKey) {
+  let inscrits = 0;
+  let votants = 0;
+  let exprimes = 0;
+  
+  const key = electionKey === "pres_2022_t1" ? "p1" : (electionKey === "pres_2022_t2" ? "p2" : "eu");
+  let listSize = key === "p1" ? ORDER_PRES_2022_T1.length : (key === "p2" ? ORDER_PRES_2022_T2.length : ORDER_EURO_2024.length);
+  const votesArray = new Array(listSize).fill(0);
+  
+  for (const [insee, stats] of Object.entries(FRANCE_STATS)) {
+    if (insee === "00000") continue;
+    // Certains codes de départements peuvent différer ou être à 2/3 caractères (Corse, DOM)
+    if (stats.d === depCode && stats[key]) {
+      inscrits += stats[key][0];
+      votants += stats[key][1];
+      exprimes += stats[key][2];
+      stats[key][3].forEach((v, idx) => {
+        votesArray[idx] += v;
+      });
+    }
+  }
+  
+  const votesObj = {};
+  let candidatesOrder = [];
+  if (key === "p1") {
+    candidatesOrder = ORDER_PRES_2022_T1;
+  } else if (key === "p2") {
+    candidatesOrder = ORDER_PRES_2022_T2;
+  } else {
+    candidatesOrder = ORDER_EURO_2024;
+  }
+  
+  candidatesOrder.forEach((c, idx) => {
+    votesObj[c] = votesArray[idx];
   });
   
   return {
@@ -182,21 +228,84 @@ function initSearch() {
   });
 }
 
+// Charger et dessiner la couche des départements français
+async function loadDepartmentsLayer() {
+  if (polygonLayer) {
+    map.removeLayer(polygonLayer);
+    polygonLayer = null;
+  }
+  
+  if (!departmentsGeoJSON) {
+    try {
+      const res = await fetch("departements.geojson");
+      departmentsGeoJSON = await res.json();
+    } catch (e) {
+      console.error("Échec du chargement du GeoJSON des départements :", e);
+      return;
+    }
+  }
+  
+  polygonLayer = L.geoJSON(departmentsGeoJSON, {
+    style: function(feature) {
+      const depCode = feature.properties.code;
+      const stats = getDepartmentVotes(depCode, selectedElection);
+      let winnerColor = "#808080";
+      if (stats && stats.exprimes > 0) {
+        const sorted = Object.entries(stats.votes).sort((a,b) => b[1] - a[1]);
+        if (sorted.length > 0) {
+          winnerColor = COULEURS_NUANCES[sorted[0][0]] || "#808080";
+        }
+      }
+      return {
+        fillColor: winnerColor,
+        color: "rgba(255, 255, 255, 0.15)",
+        weight: 1,
+        fillOpacity: 0.65
+      };
+    },
+    onEachFeature: function(feature, layer) {
+      const depCode = feature.properties.code;
+      const depName = feature.properties.nom;
+      const stats = getDepartmentVotes(depCode, selectedElection);
+      
+      let tooltipHtml = `<b>Département :</b> ${depName} (${depCode})`;
+      if (stats && stats.exprimes > 0) {
+        const sorted = Object.entries(stats.votes)
+          .map(([party, votes]) => ({
+            party,
+            votes,
+            pct: (votes / stats.exprimes) * 100
+          }))
+          .sort((a,b) => b.votes - a.votes);
+          
+        if (sorted.length > 0) {
+          const winnerName = NOMS_NUANCES[sorted[0].party] || sorted[0].party;
+          tooltipHtml += `<br><hr><b>Gagnant :</b> ${winnerName}<br><b>Score :</b> ${sorted[0].pct.toFixed(1)} %<br><b>Participation :</b> ${(stats.votants / stats.inscrits * 100).toFixed(1)} %`;
+        }
+      }
+      
+      layer.bindTooltip(tooltipHtml, { sticky: true });
+      
+      // zoomer au clic sur le département
+      layer.on("click", () => {
+        map.fitBounds(layer.getBounds());
+      });
+    }
+  }).addTo(map);
+}
+
 // Sélectionner une commune (ou la France entière) et charger sa géométrie + statistiques
 async function selectCommune(insee) {
   if (!insee) return;
 
   if (insee === "00000") {
-    // Mode France Entière
+    // Mode France Entière (Afficher la carte coloriée par département)
     btnResetFrance.style.display = "none";
     infoCard.classList.remove("hidden");
     infoName.textContent = "France entière";
     infoDep.textContent = "Échelle Nationale (Données Consolidées)";
     
-    if (polygonLayer) {
-      map.removeLayer(polygonLayer);
-      polygonLayer = null;
-    }
+    await loadDepartmentsLayer();
     
     // Zoomer à l'échelle de la France
     map.setView([46.2276, 2.2137], 6);
