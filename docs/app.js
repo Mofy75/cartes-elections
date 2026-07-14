@@ -180,54 +180,24 @@ function loadDashboard() {
   // Mettre à jour l'iframe
   mapIframe.src = `outputs/${electionId}.html`;
   
-  // Charger et traiter les données JSON
-  const jsonPath = `../data/processed/${electionId}.json`;
-  
-  fetch(jsonPath)
-    .then(res => {
-      if (!res.ok) throw new Error("Impossible de charger les données électorales");
-      return res.json();
-    })
-    .then(data => {
-      processAndDisplayStats(data);
-    })
-    .catch(err => {
-      console.error(err);
-      displayEmptyStats();
-    });
+  // Charger les données à partir de l'objet global pré-agrégé (évite les erreurs CORS locales)
+  if (typeof ELECTION_STATS !== 'undefined' && ELECTION_STATS[electionId]) {
+    displayStatsDirectly(ELECTION_STATS[electionId]);
+  } else {
+    displayEmptyStats();
+  }
 }
 
 mapIframe.onload = () => {
   showLoader(false);
 };
 
-function processAndDisplayStats(data) {
-  let totalInscrits = 0;
-  let totalVotants = 0;
-  let totalExprimes = 0;
-  const partyVotesSum = {};
-
-  data.forEach(bv => {
-    totalInscrits += bv.inscrits;
-    totalVotants += bv.votants;
-    totalExprimes += bv.exprimes;
-
-    if (bv.votes) {
-      for (const [party, votes] of Object.entries(bv.votes)) {
-        partyVotesSum[party] = (partyVotesSum[party] || 0) + votes;
-      }
-    }
-  });
-
-  const turnoutRate = totalInscrits > 0 ? (totalVotants / totalInscrits) * 100 : 0.0;
-  
-  // Trier les partis par nombre de voix global
-  const sortedParties = Object.entries(partyVotesSum)
-    .map(([party, votes]) => {
-      const pct = totalExprimes > 0 ? (votes / totalExprimes) * 100 : 0.0;
-      return { party, votes, pct };
-    })
-    .sort((a, b) => b.votes - a.votes);
+function displayStatsDirectly(stats) {
+  const totalInscrits = stats.totalInscrits;
+  const totalVotants = stats.totalVotants;
+  const totalExprimes = stats.totalExprimes;
+  const turnoutRate = stats.turnoutRate;
+  const sortedParties = stats.parties;
 
   // Affichage des KPIs
   statTurnout.textContent = `${turnoutRate.toFixed(1)}%`;

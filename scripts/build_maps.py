@@ -128,6 +128,40 @@ def build_map(election_id, json_path, geojson_path):
     # Contrôle des couches
     folium.LayerControl(collapsed=False).add_to(m)
     
+    # Custom CSS pour styliser le contrôle des couches en thème sombre premium
+    from branca.element import Element
+    custom_css = """
+    <style>
+    .leaflet-control-layers {
+        background: #151C2C !important;
+        color: #F8FAFC !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 10px !important;
+        font-family: 'Outfit', sans-serif !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+        padding: 10px 14px !important;
+        font-size: 0.85rem !important;
+    }
+    .leaflet-control-layers-list label {
+        margin-bottom: 6px !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+    }
+    .leaflet-control-layers-separator {
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        margin: 8px 0 !important;
+    }
+    .leaflet-control-layers input[type="checkbox"],
+    .leaflet-control-layers input[type="radio"] {
+        cursor: pointer !important;
+        accent-color: #8B5CF6 !important;
+    }
+    </style>
+    """
+    m.get_root().header.add_child(Element(custom_css))
+    
     # Sauvegarde
     output_path = os.path.join(config.OUTPUT_DIR, f"{election_id}.html")
     m.save(output_path)

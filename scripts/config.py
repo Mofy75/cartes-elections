@@ -40,6 +40,8 @@ COULEURS_NUANCES = {
     # Centre
     "ENS": "#ffc20e",      # Ensemble (Renaissance, LREM, MoDem...)
     "LREM": "#ffc20e",     # LREM
+    "LREM Buzyn": "#ffc20e", # LREM Agnès Buzyn
+    "LREM Villani": "#ffaa00", # LREM Cédric Villani
     "RE": "#ffc20e",       # Renaissance
     "ALLI": "#ffcc00",     # Alliance Centriste
     "UDI": "#00d2ff",      # UDI
@@ -111,6 +113,8 @@ NOMS_NUANCES = {
     "ECO": "Écologistes",
     "ENS": "Ensemble (Majorité Pres.)",
     "LREM": "La République En Marche",
+    "LREM Buzyn": "LREM (A. Buzyn)",
+    "LREM Villani": "LREM (C. Villani)",
     "RE": "Renaissance",
     "UDI": "UDI",
     "UC": "Union du Centre",

@@ -548,7 +548,53 @@ def main():
     process_municipales_2026(1)
     process_municipales_2026(2)
     
+    # Génération du fichier JS de statistiques locales pour éviter le CORS
+    generate_stats_js()
+    
     print("🎉 Tous les traitements terminés avec succès.")
+
+def generate_stats_js():
+    print("⚙️  Génération de docs/stats_data.js pour contourner les blocages CORS locaux...")
+    stats_data = {}
+    processed_files = glob.glob(os.path.join(config.PROCESSED_DIR, "*.json"))
+    for path in processed_files:
+        filename = os.path.basename(path)
+        election_id = filename.replace(".json", "")
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            
+        total_inscrits = 0
+        total_votants = 0
+        total_exprimes = 0
+        party_votes = {}
+        for bv in data:
+            total_inscrits += bv.get("inscrits", 0)
+            total_votants += bv.get("votants", 0)
+            total_exprimes += bv.get("exprimes", 0)
+            if bv.get("votes"):
+                for p, v in bv.get("votes").items():
+                    party_votes[p] = party_votes.get(p, 0) + v
+                    
+        turnout_rate = (total_votants / total_inscrits * 100) if total_inscrits > 0 else 0.0
+        sorted_parties = sorted(
+            [{"party": p, "votes": v, "pct": (v / total_exprimes * 100) if total_exprimes > 0 else 0.0} for p, v in party_votes.items()],
+            key=lambda x: x["votes"],
+            reverse=True
+        )
+        
+        stats_data[election_id] = {
+            "totalInscrits": total_inscrits,
+            "totalVotants": total_votants,
+            "totalExprimes": total_exprimes,
+            "turnoutRate": turnout_rate,
+            "parties": sorted_parties
+        }
+        
+    js_content = f"// Fichier généré automatiquement pour éviter les blocages CORS du protocole file:// dans les navigateurs.\nconst ELECTION_STATS = {json.dumps(stats_data, ensure_ascii=False, indent=2)};\n"
+    with open("docs/stats_data.js", "w", encoding="utf-8") as f:
+        f.write(js_content)
+    print("💾 Fichier docs/stats_data.js écrit avec succès !")
+
 
 if __name__ == "__main__":
     main()
