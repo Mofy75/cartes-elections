@@ -77,8 +77,8 @@ def build_map(election_id, json_path, geojson_path):
     # --- Couche 1 : Parti arrivé en tête ---
     fg_winner = folium.FeatureGroup(name="Parti arrivé en tête", show=True)
     tooltip_winner = folium.features.GeoJsonTooltip(
-        fields=["id_bv", "winner_name_readable", "winner_score_str"],
-        aliases=["Bureau :", "Gagnant :", "Score :"],
+        fields=["top3_html"],
+        aliases=[""],
         sticky=True
     )
     fg_winner.add_child(folium.GeoJson(
@@ -94,8 +94,8 @@ def build_map(election_id, json_path, geojson_path):
     # --- Couche 2 : Taux d'abstention ---
     fg_abstention = folium.FeatureGroup(name="Taux d’abstention", show=False)
     tooltip_abstention = folium.features.GeoJsonTooltip(
-        fields=["id_bv", "abstention_str"],
-        aliases=["Bureau :", "Abstention :"],
+        fields=["id_bv", "participation_str", "abstention_str"],
+        aliases=["Bureau :", "Participation :", "Abstention :"],
         sticky=True
     )
     fg_abstention.add_child(folium.GeoJson(
@@ -108,59 +108,39 @@ def build_map(election_id, json_path, geojson_path):
     ))
     fg_abstention.add_to(m)
     
-    # --- Couche 3 : Top 3 partis (détails au survol) ---
-    fg_top3 = folium.FeatureGroup(name="Top 3 partis (détails au survol)", show=False)
-    tooltip_top3 = folium.features.GeoJsonTooltip(
-        fields=["top3_html"],
-        aliases=[""],
-        sticky=True
-    )
-    fg_top3.add_child(folium.GeoJson(
-        gdf_merge,
-        style_function=lambda f: {
-            "fillColor": f["properties"].get("winner_color", "#e0e0e0"),
-            "color": "black", "weight": 0.2, "fillOpacity": 0.65,
-        },
-        tooltip=tooltip_top3
-    ))
-    fg_top3.add_to(m)
-    
-    # Contrôle des couches
+    # Contrôle des couches (ajouté pour le fonctionnement JS, mais masqué par CSS)
     folium.LayerControl(collapsed=False).add_to(m)
     
-    # Custom CSS pour styliser le contrôle des couches en thème sombre premium
+    # Custom CSS pour masquer le LayerControl et écouteur de messages JS
     from branca.element import Element
-    custom_css = """
+    custom_js_css = """
     <style>
     .leaflet-control-layers {
-        background: #151C2C !important;
-        color: #F8FAFC !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        border-radius: 10px !important;
-        font-family: 'Outfit', sans-serif !important;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
-        padding: 10px 14px !important;
-        font-size: 0.85rem !important;
-    }
-    .leaflet-control-layers-list label {
-        margin-bottom: 6px !important;
-        cursor: pointer !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 6px !important;
-    }
-    .leaflet-control-layers-separator {
-        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-        margin: 8px 0 !important;
-    }
-    .leaflet-control-layers input[type="checkbox"],
-    .leaflet-control-layers input[type="radio"] {
-        cursor: pointer !important;
-        accent-color: #8B5CF6 !important;
+        display: none !important;
     }
     </style>
+    <script>
+    window.addEventListener("message", function(event) {
+        if (event.data && event.data.action === "select_layer") {
+            const targetLayer = event.data.layer;
+            const inputs = document.querySelectorAll('.leaflet-control-layers-selector');
+            inputs.forEach(input => {
+                const labelText = input.nextSibling.textContent.trim().toLowerCase();
+                if (targetLayer === "winner" && labelText.includes("parti")) {
+                    if (!input.checked) input.click();
+                } else if (targetLayer === "winner" && labelText.includes("abstention")) {
+                    if (input.checked) input.click();
+                } else if (targetLayer === "abstention" && labelText.includes("abstention")) {
+                    if (!input.checked) input.click();
+                } else if (targetLayer === "abstention" && labelText.includes("parti")) {
+                    if (input.checked) input.click();
+                }
+            });
+        }
+    });
+    </script>
     """
-    m.get_root().header.add_child(Element(custom_css))
+    m.get_root().header.add_child(Element(custom_js_css))
     
     # Sauvegarde
     output_path = os.path.join(config.OUTPUT_DIR, f"{election_id}.html")

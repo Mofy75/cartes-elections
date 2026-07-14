@@ -91,12 +91,14 @@ const VALID_OPTIONS = {
 let selectedYear = "2026";
 let selectedType = "municipales";
 let selectedTour = "t1";
+let selectedLayer = "winner"; // 'winner' ou 'abstention'
 let myChart = null;
 
 // DOM Elements
 const yearPills = document.getElementById("year-pills");
 const typePills = document.getElementById("type-pills");
 const tourPills = document.getElementById("tour-pills");
+const layerPills = document.getElementById("layer-pills");
 const mapIframe = document.getElementById("map-iframe");
 const loaderOverlay = document.getElementById("loader-overlay");
 
@@ -195,6 +197,8 @@ function loadDashboard() {
 
 mapIframe.onload = () => {
   showLoader(false);
+  // Envoyer la couche active à l'iframe
+  mapIframe.contentWindow.postMessage({action: "select_layer", layer: selectedLayer}, "*");
 };
 
 function displayStatsDirectly(stats) {
@@ -320,6 +324,18 @@ Object.keys(VALID_OPTIONS).sort().reverse().forEach(year => {
     loadDashboard();
   };
   yearPills.appendChild(btn);
+});
+
+// Initialisation des boutons de couche de carte
+Array.from(layerPills.children).forEach(btn => {
+  btn.onclick = () => {
+    selectedLayer = btn.dataset.layer;
+    Array.from(layerPills.children).forEach(b => {
+      b.classList.toggle("active", b.dataset.layer === selectedLayer);
+    });
+    // Envoyer le message de changement de couche
+    mapIframe.contentWindow.postMessage({action: "select_layer", layer: selectedLayer}, "*");
+  };
 });
 
 // Lancement initial
