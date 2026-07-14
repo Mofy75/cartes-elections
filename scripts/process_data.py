@@ -109,7 +109,8 @@ def get_top3_and_winner(votes_dict, exprimes, id_bv):
     for party, votes in sorted_votes[:3]:
         pct = (votes / exprimes) * 100
         readable_party = config.NOMS_NUANCES.get(party, party)
-        tooltip_html += f"{readable_party} : {pct:.1f}% ({votes} voix)<br>"
+        votes_str = f"{votes:,}".replace(",", " ")
+        tooltip_html += f"{readable_party} : {pct:.1f} % ({votes_str} voix)<br>"
         
     return winner_party, winner_score, winner_color, tooltip_html
 

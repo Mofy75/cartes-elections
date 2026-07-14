@@ -62,14 +62,14 @@ def build_map(election_id, json_path, geojson_path):
     gdf_merge = gdf_merge[gdf_merge.geometry.is_valid & ~gdf_merge.geometry.is_empty]
     
     # 4. Formater les champs pour les tooltips Folium
-    gdf_merge['participation_str'] = gdf_merge['participation'].apply(lambda x: f"{x:.1f}%" if pd.notna(x) else "N/A")
-    gdf_merge['abstention_str'] = gdf_merge['abstention'].apply(lambda x: f"{x:.1f}%" if pd.notna(x) else "N/A")
-    gdf_merge['winner_score_str'] = gdf_merge['winner_score'].apply(lambda x: f"{x:.1f}%" if pd.notna(x) else "N/A")
-    gdf_merge['winner_name_readable'] = gdf_merge['winner_party'].apply(lambda x: config.NOMS_NUANCES.get(x, x) if pd.notna(x) else "Pas de scrutin")
+    gdf_merge['participation_str'] = gdf_merge['participation'].apply(lambda x: f"{x:.1f} %" if pd.notna(x) else "N/A")
+    gdf_merge['abstention_str'] = gdf_merge['abstention'].apply(lambda x: f"{x:.1f} %" if pd.notna(x) else "N/A")
+    gdf_merge['winner_score_str'] = gdf_merge['winner_score'].apply(lambda x: f"{x:.1f} %" if pd.notna(x) else "N/A")
+    gdf_merge['winner_name_readable'] = gdf_merge['winner_party'].apply(lambda x: config.NOMS_NUANCES.get(x, x) if pd.notna(x) else "Tranché au 1er tour")
     
     # Remplacer les valeurs nulles pour éviter les plantages Folium/Leaflet
     gdf_merge['winner_color'] = gdf_merge['winner_color'].fillna("#e0e0e0")
-    gdf_merge['top3_html'] = gdf_merge['top3_html'].fillna("Pas de scrutin dans ce bureau")
+    gdf_merge['top3_html'] = gdf_merge['top3_html'].fillna("Scrutin tranché au 1er tour")
     
     # Créer la carte centrée sur Paris
     m = folium.Map(location=[48.8566, 2.3522], zoom_start=12, tiles="cartodb positron")

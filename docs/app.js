@@ -173,12 +173,17 @@ function showLoader(show) {
   loaderOverlay.classList.toggle("active", show);
 }
 
+function formatNumber(num) {
+  if (num === null || num === undefined) return "--";
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
 function loadDashboard() {
   showLoader(true);
   const electionId = getElectionId(selectedYear, selectedType, selectedTour);
   
-  // Mettre à jour l'iframe
-  mapIframe.src = `outputs/${electionId}.html`;
+  // Mettre à jour l'iframe avec cache-busting (?t=...) pour forcer le rechargement local
+  mapIframe.src = `outputs/${electionId}.html?t=${Date.now()}`;
   
   // Charger les données à partir de l'objet global pré-agrégé (évite les erreurs CORS locales)
   if (typeof ELECTION_STATS !== 'undefined' && ELECTION_STATS[electionId]) {
@@ -200,9 +205,9 @@ function displayStatsDirectly(stats) {
   const sortedParties = stats.parties;
 
   // Affichage des KPIs
-  statTurnout.textContent = `${turnoutRate.toFixed(1)}%`;
-  statTotalInscrits.textContent = totalInscrits.toLocaleString();
-  statExprimes.textContent = totalExprimes.toLocaleString();
+  statTurnout.textContent = `${turnoutRate.toFixed(1)} %`;
+  statTotalInscrits.textContent = formatNumber(totalInscrits);
+  statExprimes.textContent = formatNumber(totalExprimes);
 
   if (sortedParties.length > 0) {
     const winner = sortedParties[0];
@@ -211,7 +216,7 @@ function displayStatsDirectly(stats) {
     
     statWinnerName.textContent = winnerName;
     statWinnerName.style.color = winnerColor;
-    statWinnerScore.textContent = `${winner.pct.toFixed(1)}%`;
+    statWinnerScore.textContent = `${winner.pct.toFixed(1)} %`;
   } else {
     statWinnerName.textContent = "Aucun";
     statWinnerName.style.color = "inherit";
@@ -231,9 +236,9 @@ function displayStatsDirectly(stats) {
         <div class="party-name-container">
           <span class="party-color-dot" style="background-color: ${color}"></span>
           <span class="party-label">${name}</span>
-          <span class="party-votes">(${item.votes.toLocaleString()} voix)</span>
+          <span class="party-votes">(${formatNumber(item.votes)} voix)</span>
         </div>
-        <div class="party-percentage">${item.pct.toFixed(1)}%</div>
+        <div class="party-percentage">${item.pct.toFixed(1)} %</div>
       </div>
       <div class="progress-bar-container">
         <div class="progress-bar-fill" style="width: ${item.pct}%; background-color: ${color}"></div>
