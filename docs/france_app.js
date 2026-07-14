@@ -57,12 +57,19 @@ let polygonLayer = null;
 let myChart = null;
 
 // Éléments du DOM
+const loaderOverlay = document.getElementById("loader-overlay");
 const searchInput = document.getElementById("commune-search");
 const autocompleteList = document.getElementById("autocomplete-list");
 const electionPills = document.getElementById("election-pills");
 const infoCard = document.getElementById("commune-info-card");
 const infoName = document.getElementById("info-commune-name");
 const infoDep = document.getElementById("info-commune-dep");
+
+function showLoader(show) {
+  if (loaderOverlay) {
+    loaderOverlay.classList.toggle("active", show);
+  }
+}
 
 const statWinnerName = document.getElementById("stat-winner-name");
 const statWinnerScore = document.getElementById("stat-winner-score");
@@ -340,4 +347,15 @@ Array.from(electionPills.children).forEach(btn => {
 window.onload = () => {
   initMap();
   initSearch();
+  
+  // Charger Paris par défaut à l'ouverture pour animer l'interface
+  activeInsee = "75056";
+  searchInput.value = "Paris (75)";
+  infoCard.classList.remove("hidden");
+  infoName.textContent = "Paris";
+  infoDep.textContent = "Département : 75 | Code INSEE : 75056";
+  selectCommune("75056");
+  
+  // Masquer le loader de chargement initial
+  showLoader(false);
 };
