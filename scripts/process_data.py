@@ -147,6 +147,9 @@ def load_legislatives_candidates(year):
 def match_candidate_to_nuance(col_name, cand_map):
     """Associe un nom de colonne de candidat à sa nuance officielle."""
     norm_col = normalize_name(col_name)
+    # Correction spécifique pour le nom corrompu de Sylvain Maillard en 2024
+    if "LARD" in norm_col and "SYLVAIN" in norm_col:
+        return "ENS"
     # Chercher une correspondance exacte (nom et prénom tous deux inclus dans le nom de la colonne)
     matched_nuance = None
     for (last, first), nuance in cand_map.items():

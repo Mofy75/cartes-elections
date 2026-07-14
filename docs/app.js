@@ -30,7 +30,20 @@ const NOMS_NUANCES = {
   "DXD": "Extrême droite",
   "DIV": "Divers",
   "REG": "Régionalistes",
-  "SE": "Sans étiquette"
+  "SE": "Sans étiquette",
+  "LUG": "Union de la Gauche",
+  "LUD": "Union de la Droite",
+  "LUC": "Union du Centre",
+  "LDVG": "Divers gauche",
+  "LDVD": "Divers droite",
+  "LDVC": "Divers centre",
+  "LECO": "Écologistes",
+  "LREC": "Reconquête!",
+  "LRN": "Rassemblement National",
+  "LEXG": "Extrême gauche",
+  "LEXD": "Extrême droite",
+  "LREG": "Régionalistes",
+  "LDSV": "Droite souverainiste"
 };
 
 const COULEURS_NUANCES = {
@@ -43,7 +56,12 @@ const COULEURS_NUANCES = {
   "ALLI": "#ffcc00", "UDI": "#00d2ff", "UC": "#00d2ff", "DVC": "#ffeb80",
   "LR": "#0066cc", "DVD": "#80c0ff", "DSV": "#4080ff", "REC": "#8a2be2",
   "RN": "#002e66", "EXD": "#000020", "DXD": "#000020",
-  "DIV": "#808080", "REG": "#c0c0c0", "SE": "#808080"
+  "DIV": "#808080", "REG": "#c0c0c0", "SE": "#808080",
+  "LUG": "#E40046", "LUD": "#0066cc", "LUC": "#ffc20e",
+  "LDVG": "#ff80a0", "LDVD": "#80c0ff", "LDVC": "#ffeb80",
+  "LECO": "#00a650", "LREC": "#8a2be2", "LRN": "#002e66",
+  "LEXG": "#9b0000", "LEXD": "#000020", "LREG": "#c0c0c0",
+  "LDSV": "#4080ff"
 };
 
 // --- CONFIGURATION DES OPTIONS VALIDES ---

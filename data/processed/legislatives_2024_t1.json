@@ -11563,27 +11563,29 @@
       "EXG": 3,
       "DVC": 14,
       "REC": 12,
-      "DIV": 310,
+      "ENS": 310,
       "REG": 1,
       "LR": 37,
       "DVD": 33,
-      "RN": 84
+      "RN": 84,
+      "DIV": 0
     },
     "proportions": {
       "UG": 36.09314359637775,
       "EXG": 0.38809831824062097,
       "DVC": 1.8111254851228977,
       "REC": 1.5523932729624839,
-      "DIV": 40.10349288486417,
+      "ENS": 40.10349288486417,
       "REG": 0.129366106080207,
       "LR": 4.786545924967658,
       "DVD": 4.269081500646831,
-      "RN": 10.866752910737388
+      "RN": 10.866752910737388,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 40.10349288486417,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 1-1<br><hr>Divers : 40.1% (310 voix)<br>Union de la Gauche / NFP : 36.1% (279 voix)<br>Rassemblement National : 10.9% (84 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 1-1<br><hr>Ensemble (Majorité Pres.) : 40.1% (310 voix)<br>Union de la Gauche / NFP : 36.1% (279 voix)<br>Rassemblement National : 10.9% (84 voix)<br>"
   },
   {
     "id_bv": "1-2",
@@ -11601,27 +11603,29 @@
       "EXG": 0,
       "DVC": 9,
       "REC": 7,
-      "DIV": 408,
+      "ENS": 405,
       "REG": 2,
       "LR": 50,
       "DVD": 23,
-      "RN": 84
+      "RN": 84,
+      "DIV": 3
     },
     "proportions": {
       "UG": 34.86033519553073,
       "EXG": 0.0,
       "DVC": 1.005586592178771,
       "REC": 0.782122905027933,
-      "DIV": 45.58659217877095,
+      "ENS": 45.2513966480447,
       "REG": 0.22346368715083798,
       "LR": 5.58659217877095,
       "DVD": 2.569832402234637,
-      "RN": 9.385474860335195
+      "RN": 9.385474860335195,
+      "DIV": 0.33519553072625696
     },
-    "winner_party": "DIV",
-    "winner_score": 45.58659217877095,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 1-2<br><hr>Divers : 45.6% (408 voix)<br>Union de la Gauche / NFP : 34.9% (312 voix)<br>Rassemblement National : 9.4% (84 voix)<br>"
+    "winner_party": "ENS",
+    "winner_score": 45.2513966480447,
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 1-2<br><hr>Ensemble (Majorité Pres.) : 45.3% (405 voix)<br>Union de la Gauche / NFP : 34.9% (312 voix)<br>Rassemblement National : 9.4% (84 voix)<br>"
   },
   {
     "id_bv": "1-3",
@@ -11639,27 +11643,29 @@
       "EXG": 8,
       "DVC": 13,
       "REC": 17,
-      "DIV": 333,
+      "ENS": 333,
       "REG": 2,
       "LR": 36,
       "DVD": 29,
-      "RN": 113
+      "RN": 113,
+      "DIV": 0
     },
     "proportions": {
       "UG": 36.37413394919168,
       "EXG": 0.9237875288683602,
       "DVC": 1.5011547344110854,
       "REC": 1.9630484988452657,
-      "DIV": 38.4526558891455,
+      "ENS": 38.4526558891455,
       "REG": 0.23094688221709006,
       "LR": 4.157043879907621,
       "DVD": 3.348729792147806,
-      "RN": 13.048498845265588
+      "RN": 13.048498845265588,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 38.4526558891455,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 1-3<br><hr>Divers : 38.5% (333 voix)<br>Union de la Gauche / NFP : 36.4% (315 voix)<br>Rassemblement National : 13.0% (113 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 1-3<br><hr>Ensemble (Majorité Pres.) : 38.5% (333 voix)<br>Union de la Gauche / NFP : 36.4% (315 voix)<br>Rassemblement National : 13.0% (113 voix)<br>"
   },
   {
     "id_bv": "1-4",
@@ -11677,27 +11683,29 @@
       "EXG": 18,
       "DVC": 16,
       "REC": 9,
-      "DIV": 299,
+      "ENS": 299,
       "REG": 0,
       "LR": 28,
       "DVD": 17,
-      "RN": 97
+      "RN": 97,
+      "DIV": 0
     },
     "proportions": {
       "UG": 46.22222222222222,
       "EXG": 2.0,
       "DVC": 1.7777777777777777,
       "REC": 1.0,
-      "DIV": 33.22222222222222,
+      "ENS": 33.22222222222222,
       "REG": 0.0,
       "LR": 3.111111111111111,
       "DVD": 1.8888888888888888,
-      "RN": 10.777777777777779
+      "RN": 10.777777777777779,
+      "DIV": 0.0
     },
     "winner_party": "UG",
     "winner_score": 46.22222222222222,
     "winner_color": "#E40046",
-    "top3_html": "<b>Bureau :</b> 1-4<br><hr>Union de la Gauche / NFP : 46.2% (416 voix)<br>Divers : 33.2% (299 voix)<br>Rassemblement National : 10.8% (97 voix)<br>"
+    "top3_html": "<b>Bureau :</b> 1-4<br><hr>Union de la Gauche / NFP : 46.2% (416 voix)<br>Ensemble (Majorité Pres.) : 33.2% (299 voix)<br>Rassemblement National : 10.8% (97 voix)<br>"
   },
   {
     "id_bv": "1-5",
@@ -11715,27 +11723,29 @@
       "EXG": 1,
       "DVC": 6,
       "REC": 12,
-      "DIV": 350,
+      "ENS": 350,
       "REG": 3,
       "LR": 28,
       "DVD": 28,
-      "RN": 70
+      "RN": 70,
+      "DIV": 0
     },
     "proportions": {
       "UG": 39.119804400978,
       "EXG": 0.12224938875305623,
       "DVC": 0.7334963325183375,
       "REC": 1.466992665036675,
-      "DIV": 42.78728606356968,
+      "ENS": 42.78728606356968,
       "REG": 0.36674816625916873,
       "LR": 3.4229828850855744,
       "DVD": 3.4229828850855744,
-      "RN": 8.557457212713937
+      "RN": 8.557457212713937,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 42.78728606356968,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 1-5<br><hr>Divers : 42.8% (350 voix)<br>Union de la Gauche / NFP : 39.1% (320 voix)<br>Rassemblement National : 8.6% (70 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 1-5<br><hr>Ensemble (Majorité Pres.) : 42.8% (350 voix)<br>Union de la Gauche / NFP : 39.1% (320 voix)<br>Rassemblement National : 8.6% (70 voix)<br>"
   },
   {
     "id_bv": "1-6",
@@ -11753,27 +11763,29 @@
       "EXG": 5,
       "DVC": 2,
       "REC": 14,
-      "DIV": 362,
+      "ENS": 362,
       "REG": 5,
       "LR": 35,
       "DVD": 28,
-      "RN": 121
+      "RN": 121,
+      "DIV": 0
     },
     "proportions": {
       "UG": 36.86534216335541,
       "EXG": 0.5518763796909493,
       "DVC": 0.22075055187637968,
       "REC": 1.545253863134658,
-      "DIV": 39.95584988962472,
+      "ENS": 39.95584988962472,
       "REG": 0.5518763796909493,
       "LR": 3.863134657836645,
       "DVD": 3.090507726269316,
-      "RN": 13.35540838852097
+      "RN": 13.35540838852097,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 39.95584988962472,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 1-6<br><hr>Divers : 40.0% (362 voix)<br>Union de la Gauche / NFP : 36.9% (334 voix)<br>Rassemblement National : 13.4% (121 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 1-6<br><hr>Ensemble (Majorité Pres.) : 40.0% (362 voix)<br>Union de la Gauche / NFP : 36.9% (334 voix)<br>Rassemblement National : 13.4% (121 voix)<br>"
   },
   {
     "id_bv": "1-7",
@@ -11791,27 +11803,29 @@
       "EXG": 2,
       "DVC": 9,
       "REC": 11,
-      "DIV": 367,
+      "ENS": 367,
       "REG": 0,
       "LR": 44,
       "DVD": 31,
-      "RN": 85
+      "RN": 85,
+      "DIV": 0
     },
     "proportions": {
       "UG": 31.88585607940447,
       "EXG": 0.24813895781637718,
       "DVC": 1.1166253101736971,
       "REC": 1.3647642679900744,
-      "DIV": 45.53349875930521,
+      "ENS": 45.53349875930521,
       "REG": 0.0,
       "LR": 5.459057071960298,
       "DVD": 3.8461538461538463,
-      "RN": 10.54590570719603
+      "RN": 10.54590570719603,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 45.53349875930521,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 1-7<br><hr>Divers : 45.5% (367 voix)<br>Union de la Gauche / NFP : 31.9% (257 voix)<br>Rassemblement National : 10.5% (85 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 1-7<br><hr>Ensemble (Majorité Pres.) : 45.5% (367 voix)<br>Union de la Gauche / NFP : 31.9% (257 voix)<br>Rassemblement National : 10.5% (85 voix)<br>"
   },
   {
     "id_bv": "1-8",
@@ -11829,27 +11843,29 @@
       "EXG": 2,
       "DVC": 7,
       "REC": 11,
-      "DIV": 304,
+      "ENS": 304,
       "REG": 3,
       "LR": 48,
       "DVD": 38,
-      "RN": 88
+      "RN": 88,
+      "DIV": 0
     },
     "proportions": {
       "UG": 25.44642857142857,
       "EXG": 0.2976190476190476,
       "DVC": 1.0416666666666665,
       "REC": 1.636904761904762,
-      "DIV": 45.23809523809524,
+      "ENS": 45.23809523809524,
       "REG": 0.4464285714285714,
       "LR": 7.142857142857142,
       "DVD": 5.654761904761905,
-      "RN": 13.095238095238097
+      "RN": 13.095238095238097,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 45.23809523809524,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 1-8<br><hr>Divers : 45.2% (304 voix)<br>Union de la Gauche / NFP : 25.4% (171 voix)<br>Rassemblement National : 13.1% (88 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 1-8<br><hr>Ensemble (Majorité Pres.) : 45.2% (304 voix)<br>Union de la Gauche / NFP : 25.4% (171 voix)<br>Rassemblement National : 13.1% (88 voix)<br>"
   },
   {
     "id_bv": "1-9",
@@ -11867,27 +11883,29 @@
       "EXG": 3,
       "DVC": 10,
       "REC": 14,
-      "DIV": 317,
+      "ENS": 317,
       "REG": 1,
       "LR": 45,
       "DVD": 32,
-      "RN": 97
+      "RN": 97,
+      "DIV": 0
     },
     "proportions": {
       "UG": 21.837349397590362,
       "EXG": 0.4518072289156626,
       "DVC": 1.5060240963855422,
       "REC": 2.108433734939759,
-      "DIV": 47.74096385542169,
+      "ENS": 47.74096385542169,
       "REG": 0.15060240963855423,
       "LR": 6.77710843373494,
       "DVD": 4.819277108433735,
-      "RN": 14.60843373493976
+      "RN": 14.60843373493976,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 47.74096385542169,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 1-9<br><hr>Divers : 47.7% (317 voix)<br>Union de la Gauche / NFP : 21.8% (145 voix)<br>Rassemblement National : 14.6% (97 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 1-9<br><hr>Ensemble (Majorité Pres.) : 47.7% (317 voix)<br>Union de la Gauche / NFP : 21.8% (145 voix)<br>Rassemblement National : 14.6% (97 voix)<br>"
   },
   {
     "id_bv": "1-10",
@@ -11905,27 +11923,29 @@
       "EXG": 1,
       "DVC": 2,
       "REC": 10,
-      "DIV": 351,
+      "ENS": 351,
       "REG": 2,
       "LR": 40,
       "DVD": 31,
-      "RN": 72
+      "RN": 72,
+      "DIV": 0
     },
     "proportions": {
       "UG": 21.812596006144393,
       "EXG": 0.15360983102918588,
       "DVC": 0.30721966205837176,
       "REC": 1.5360983102918586,
-      "DIV": 53.91705069124424,
+      "ENS": 53.91705069124424,
       "REG": 0.30721966205837176,
       "LR": 6.1443932411674345,
       "DVD": 4.761904761904762,
-      "RN": 11.059907834101383
+      "RN": 11.059907834101383,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 53.91705069124424,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 1-10<br><hr>Divers : 53.9% (351 voix)<br>Union de la Gauche / NFP : 21.8% (142 voix)<br>Rassemblement National : 11.1% (72 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 1-10<br><hr>Ensemble (Majorité Pres.) : 53.9% (351 voix)<br>Union de la Gauche / NFP : 21.8% (142 voix)<br>Rassemblement National : 11.1% (72 voix)<br>"
   },
   {
     "id_bv": "2-11",
@@ -11943,27 +11963,29 @@
       "EXG": 1,
       "DVC": 14,
       "REC": 13,
-      "DIV": 342,
+      "ENS": 342,
       "REG": 2,
       "LR": 51,
       "DVD": 33,
-      "RN": 80
+      "RN": 80,
+      "DIV": 0
     },
     "proportions": {
       "UG": 31.806615776081426,
       "EXG": 0.1272264631043257,
       "DVC": 1.7811704834605597,
       "REC": 1.653944020356234,
-      "DIV": 43.51145038167939,
+      "ENS": 43.51145038167939,
       "REG": 0.2544529262086514,
       "LR": 6.488549618320611,
       "DVD": 4.198473282442748,
-      "RN": 10.178117048346055
+      "RN": 10.178117048346055,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 43.51145038167939,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 2-11<br><hr>Divers : 43.5% (342 voix)<br>Union de la Gauche / NFP : 31.8% (250 voix)<br>Rassemblement National : 10.2% (80 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 2-11<br><hr>Ensemble (Majorité Pres.) : 43.5% (342 voix)<br>Union de la Gauche / NFP : 31.8% (250 voix)<br>Rassemblement National : 10.2% (80 voix)<br>"
   },
   {
     "id_bv": "2-12",
@@ -11981,27 +12003,29 @@
       "EXG": 5,
       "DVC": 5,
       "REC": 17,
-      "DIV": 368,
+      "ENS": 368,
       "REG": 1,
       "LR": 27,
       "DVD": 33,
-      "RN": 70
+      "RN": 70,
+      "DIV": 0
     },
     "proportions": {
       "UG": 35.775335775335776,
       "EXG": 0.6105006105006106,
       "DVC": 0.6105006105006106,
       "REC": 2.0757020757020754,
-      "DIV": 44.93284493284494,
+      "ENS": 44.93284493284494,
       "REG": 0.1221001221001221,
       "LR": 3.296703296703297,
       "DVD": 4.029304029304029,
-      "RN": 8.547008547008547
+      "RN": 8.547008547008547,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 44.93284493284494,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 2-12<br><hr>Divers : 44.9% (368 voix)<br>Union de la Gauche / NFP : 35.8% (293 voix)<br>Rassemblement National : 8.5% (70 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 2-12<br><hr>Ensemble (Majorité Pres.) : 44.9% (368 voix)<br>Union de la Gauche / NFP : 35.8% (293 voix)<br>Rassemblement National : 8.5% (70 voix)<br>"
   },
   {
     "id_bv": "2-13",
@@ -12019,27 +12043,29 @@
       "EXG": 2,
       "DVC": 9,
       "REC": 13,
-      "DIV": 282,
+      "ENS": 282,
       "REG": 3,
       "LR": 36,
       "DVD": 23,
-      "RN": 67
+      "RN": 67,
+      "DIV": 0
     },
     "proportions": {
       "UG": 30.064308681672024,
       "EXG": 0.3215434083601286,
       "DVC": 1.4469453376205788,
       "REC": 2.090032154340836,
-      "DIV": 45.337620578778136,
+      "ENS": 45.337620578778136,
       "REG": 0.482315112540193,
       "LR": 5.787781350482315,
       "DVD": 3.697749196141479,
-      "RN": 10.77170418006431
+      "RN": 10.77170418006431,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 45.337620578778136,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 2-13<br><hr>Divers : 45.3% (282 voix)<br>Union de la Gauche / NFP : 30.1% (187 voix)<br>Rassemblement National : 10.8% (67 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 2-13<br><hr>Ensemble (Majorité Pres.) : 45.3% (282 voix)<br>Union de la Gauche / NFP : 30.1% (187 voix)<br>Rassemblement National : 10.8% (67 voix)<br>"
   },
   {
     "id_bv": "2-14",
@@ -12057,27 +12083,29 @@
       "EXG": 5,
       "DVC": 14,
       "REC": 15,
-      "DIV": 439,
+      "ENS": 439,
       "REG": 1,
       "LR": 48,
       "DVD": 29,
-      "RN": 105
+      "RN": 105,
+      "DIV": 0
     },
     "proportions": {
       "UG": 42.30430958663149,
       "EXG": 0.43975373790677225,
       "DVC": 1.2313104661389622,
       "REC": 1.3192612137203166,
-      "DIV": 38.6103781882146,
+      "ENS": 38.6103781882146,
       "REG": 0.08795074758135445,
       "LR": 4.221635883905013,
       "DVD": 2.550571679859279,
-      "RN": 9.234828496042216
+      "RN": 9.234828496042216,
+      "DIV": 0.0
     },
     "winner_party": "UG",
     "winner_score": 42.30430958663149,
     "winner_color": "#E40046",
-    "top3_html": "<b>Bureau :</b> 2-14<br><hr>Union de la Gauche / NFP : 42.3% (481 voix)<br>Divers : 38.6% (439 voix)<br>Rassemblement National : 9.2% (105 voix)<br>"
+    "top3_html": "<b>Bureau :</b> 2-14<br><hr>Union de la Gauche / NFP : 42.3% (481 voix)<br>Ensemble (Majorité Pres.) : 38.6% (439 voix)<br>Rassemblement National : 9.2% (105 voix)<br>"
   },
   {
     "id_bv": "2-15",
@@ -12095,27 +12123,29 @@
       "EXG": 3,
       "DVC": 8,
       "REC": 11,
-      "DIV": 489,
+      "ENS": 489,
       "REG": 1,
       "LR": 41,
       "DVD": 27,
-      "RN": 81
+      "RN": 81,
+      "DIV": 0
     },
     "proportions": {
       "UG": 39.07834101382488,
       "EXG": 0.2764976958525346,
       "DVC": 0.7373271889400922,
       "REC": 1.0138248847926268,
-      "DIV": 45.06912442396314,
+      "ENS": 45.06912442396314,
       "REG": 0.09216589861751152,
       "LR": 3.778801843317972,
       "DVD": 2.488479262672811,
-      "RN": 7.465437788018433
+      "RN": 7.465437788018433,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 45.06912442396314,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 2-15<br><hr>Divers : 45.1% (489 voix)<br>Union de la Gauche / NFP : 39.1% (424 voix)<br>Rassemblement National : 7.5% (81 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 2-15<br><hr>Ensemble (Majorité Pres.) : 45.1% (489 voix)<br>Union de la Gauche / NFP : 39.1% (424 voix)<br>Rassemblement National : 7.5% (81 voix)<br>"
   },
   {
     "id_bv": "2-16",
@@ -12133,27 +12163,29 @@
       "EXG": 3,
       "DVC": 10,
       "REC": 11,
-      "DIV": 536,
+      "ENS": 536,
       "REG": 1,
       "LR": 49,
       "DVD": 39,
-      "RN": 85
+      "RN": 85,
+      "DIV": 0
     },
     "proportions": {
       "UG": 34.69750889679715,
       "EXG": 0.26690391459074736,
       "DVC": 0.8896797153024912,
       "REC": 0.9786476868327402,
-      "DIV": 47.686832740213525,
+      "ENS": 47.686832740213525,
       "REG": 0.0889679715302491,
       "LR": 4.359430604982206,
       "DVD": 3.469750889679715,
-      "RN": 7.562277580071175
+      "RN": 7.562277580071175,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 47.686832740213525,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 2-16<br><hr>Divers : 47.7% (536 voix)<br>Union de la Gauche / NFP : 34.7% (390 voix)<br>Rassemblement National : 7.6% (85 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 2-16<br><hr>Ensemble (Majorité Pres.) : 47.7% (536 voix)<br>Union de la Gauche / NFP : 34.7% (390 voix)<br>Rassemblement National : 7.6% (85 voix)<br>"
   },
   {
     "id_bv": "2-17",
@@ -12171,27 +12203,29 @@
       "EXG": 8,
       "DVC": 10,
       "REC": 19,
-      "DIV": 488,
+      "ENS": 488,
       "REG": 2,
       "LR": 37,
       "DVD": 31,
-      "RN": 81
+      "RN": 81,
+      "DIV": 0
     },
     "proportions": {
       "UG": 40.440528634361236,
       "EXG": 0.7048458149779736,
       "DVC": 0.881057268722467,
       "REC": 1.6740088105726871,
-      "DIV": 42.99559471365639,
+      "ENS": 42.99559471365639,
       "REG": 0.1762114537444934,
       "LR": 3.2599118942731278,
       "DVD": 2.7312775330396475,
-      "RN": 7.136563876651983
+      "RN": 7.136563876651983,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 42.99559471365639,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 2-17<br><hr>Divers : 43.0% (488 voix)<br>Union de la Gauche / NFP : 40.4% (459 voix)<br>Rassemblement National : 7.1% (81 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 2-17<br><hr>Ensemble (Majorité Pres.) : 43.0% (488 voix)<br>Union de la Gauche / NFP : 40.4% (459 voix)<br>Rassemblement National : 7.1% (81 voix)<br>"
   },
   {
     "id_bv": "2-18",
@@ -12209,27 +12243,29 @@
       "EXG": 6,
       "DVC": 21,
       "REC": 12,
-      "DIV": 499,
+      "ENS": 499,
       "REG": 1,
       "LR": 29,
       "DVD": 33,
-      "RN": 84
+      "RN": 84,
+      "DIV": 0
     },
     "proportions": {
       "UG": 45.97791798107255,
       "EXG": 0.47318611987381703,
       "DVC": 1.6561514195583598,
       "REC": 0.9463722397476341,
-      "DIV": 39.353312302839115,
+      "ENS": 39.353312302839115,
       "REG": 0.07886435331230283,
       "LR": 2.2870662460567823,
       "DVD": 2.602523659305994,
-      "RN": 6.624605678233439
+      "RN": 6.624605678233439,
+      "DIV": 0.0
     },
     "winner_party": "UG",
     "winner_score": 45.97791798107255,
     "winner_color": "#E40046",
-    "top3_html": "<b>Bureau :</b> 2-18<br><hr>Union de la Gauche / NFP : 46.0% (583 voix)<br>Divers : 39.4% (499 voix)<br>Rassemblement National : 6.6% (84 voix)<br>"
+    "top3_html": "<b>Bureau :</b> 2-18<br><hr>Union de la Gauche / NFP : 46.0% (583 voix)<br>Ensemble (Majorité Pres.) : 39.4% (499 voix)<br>Rassemblement National : 6.6% (84 voix)<br>"
   },
   {
     "id_bv": "2-19",
@@ -12247,27 +12283,29 @@
       "EXG": 5,
       "DVC": 18,
       "REC": 8,
-      "DIV": 471,
+      "ENS": 471,
       "REG": 4,
       "LR": 43,
       "DVD": 25,
-      "RN": 94
+      "RN": 94,
+      "DIV": 0
     },
     "proportions": {
       "UG": 47.56671899529042,
       "EXG": 0.39246467817896385,
       "DVC": 1.4128728414442702,
       "REC": 0.6279434850863422,
-      "DIV": 36.9701726844584,
+      "ENS": 36.9701726844584,
       "REG": 0.3139717425431711,
       "LR": 3.375196232339089,
       "DVD": 1.9623233908948194,
-      "RN": 7.378335949764521
+      "RN": 7.378335949764521,
+      "DIV": 0.0
     },
     "winner_party": "UG",
     "winner_score": 47.56671899529042,
     "winner_color": "#E40046",
-    "top3_html": "<b>Bureau :</b> 2-19<br><hr>Union de la Gauche / NFP : 47.6% (606 voix)<br>Divers : 37.0% (471 voix)<br>Rassemblement National : 7.4% (94 voix)<br>"
+    "top3_html": "<b>Bureau :</b> 2-19<br><hr>Union de la Gauche / NFP : 47.6% (606 voix)<br>Ensemble (Majorité Pres.) : 37.0% (471 voix)<br>Rassemblement National : 7.4% (94 voix)<br>"
   },
   {
     "id_bv": "2-20",
@@ -12285,27 +12323,29 @@
       "EXG": 5,
       "DVC": 14,
       "REC": 9,
-      "DIV": 399,
+      "ENS": 399,
       "REG": 6,
       "LR": 21,
       "DVD": 25,
-      "RN": 65
+      "RN": 65,
+      "DIV": 0
     },
     "proportions": {
       "UG": 48.679245283018865,
       "EXG": 0.4716981132075472,
       "DVC": 1.3207547169811322,
       "REC": 0.8490566037735849,
-      "DIV": 37.64150943396227,
+      "ENS": 37.64150943396227,
       "REG": 0.5660377358490566,
       "LR": 1.9811320754716981,
       "DVD": 2.358490566037736,
-      "RN": 6.132075471698113
+      "RN": 6.132075471698113,
+      "DIV": 0.0
     },
     "winner_party": "UG",
     "winner_score": 48.679245283018865,
     "winner_color": "#E40046",
-    "top3_html": "<b>Bureau :</b> 2-20<br><hr>Union de la Gauche / NFP : 48.7% (516 voix)<br>Divers : 37.6% (399 voix)<br>Rassemblement National : 6.1% (65 voix)<br>"
+    "top3_html": "<b>Bureau :</b> 2-20<br><hr>Union de la Gauche / NFP : 48.7% (516 voix)<br>Ensemble (Majorité Pres.) : 37.6% (399 voix)<br>Rassemblement National : 6.1% (65 voix)<br>"
   },
   {
     "id_bv": "8-1",
@@ -12323,27 +12363,29 @@
       "EXG": 4,
       "DVC": 7,
       "REC": 26,
-      "DIV": 583,
+      "ENS": 583,
       "REG": 2,
       "LR": 99,
       "DVD": 98,
-      "RN": 190
+      "RN": 190,
+      "DIV": 0
     },
     "proportions": {
       "UG": 14.995787700084245,
       "EXG": 0.33698399326032014,
       "DVC": 0.5897219882055602,
       "REC": 2.1903959561920807,
-      "DIV": 49.11541701769166,
+      "ENS": 49.11541701769166,
       "REG": 0.16849199663016007,
       "LR": 8.340353833192923,
       "DVD": 8.256107834877843,
-      "RN": 16.006739679865206
+      "RN": 16.006739679865206,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 49.11541701769166,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-1<br><hr>Divers : 49.1% (583 voix)<br>Rassemblement National : 16.0% (190 voix)<br>Union de la Gauche / NFP : 15.0% (178 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-1<br><hr>Ensemble (Majorité Pres.) : 49.1% (583 voix)<br>Rassemblement National : 16.0% (190 voix)<br>Union de la Gauche / NFP : 15.0% (178 voix)<br>"
   },
   {
     "id_bv": "8-2",
@@ -12361,27 +12403,29 @@
       "EXG": 0,
       "DVC": 3,
       "REC": 34,
-      "DIV": 512,
+      "ENS": 512,
       "REG": 2,
       "LR": 105,
       "DVD": 69,
-      "RN": 131
+      "RN": 131,
+      "DIV": 0
     },
     "proportions": {
       "UG": 15.913555992141454,
       "EXG": 0.0,
       "DVC": 0.29469548133595286,
       "REC": 3.3398821218074657,
-      "DIV": 50.29469548133595,
+      "ENS": 50.29469548133595,
       "REG": 0.19646365422396855,
       "LR": 10.31434184675835,
       "DVD": 6.777996070726916,
-      "RN": 12.868369351669942
+      "RN": 12.868369351669942,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 50.29469548133595,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-2<br><hr>Divers : 50.3% (512 voix)<br>Union de la Gauche / NFP : 15.9% (162 voix)<br>Rassemblement National : 12.9% (131 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-2<br><hr>Ensemble (Majorité Pres.) : 50.3% (512 voix)<br>Union de la Gauche / NFP : 15.9% (162 voix)<br>Rassemblement National : 12.9% (131 voix)<br>"
   },
   {
     "id_bv": "8-3",
@@ -12399,27 +12443,29 @@
       "EXG": 4,
       "DVC": 10,
       "REC": 33,
-      "DIV": 547,
+      "ENS": 547,
       "REG": 1,
       "LR": 110,
       "DVD": 113,
-      "RN": 132
+      "RN": 132,
+      "DIV": 0
     },
     "proportions": {
       "UG": 16.003536693191865,
       "EXG": 0.3536693191865605,
       "DVC": 0.8841732979664014,
       "REC": 2.9177718832891246,
-      "DIV": 48.36427939876216,
+      "ENS": 48.36427939876216,
       "REG": 0.08841732979664013,
       "LR": 9.725906277630415,
       "DVD": 9.991158267020337,
-      "RN": 11.671087533156498
+      "RN": 11.671087533156498,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 48.36427939876216,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-3<br><hr>Divers : 48.4% (547 voix)<br>Union de la Gauche / NFP : 16.0% (181 voix)<br>Rassemblement National : 11.7% (132 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-3<br><hr>Ensemble (Majorité Pres.) : 48.4% (547 voix)<br>Union de la Gauche / NFP : 16.0% (181 voix)<br>Rassemblement National : 11.7% (132 voix)<br>"
   },
   {
     "id_bv": "8-4",
@@ -12437,27 +12483,29 @@
       "EXG": 0,
       "DVC": 9,
       "REC": 26,
-      "DIV": 561,
+      "ENS": 561,
       "REG": 0,
       "LR": 132,
       "DVD": 78,
-      "RN": 140
+      "RN": 140,
+      "DIV": 0
     },
     "proportions": {
       "UG": 11.25703564727955,
       "EXG": 0.0,
       "DVC": 0.8442776735459663,
       "REC": 2.4390243902439024,
-      "DIV": 52.62664165103189,
+      "ENS": 52.62664165103189,
       "REG": 0.0,
       "LR": 12.382739212007504,
       "DVD": 7.317073170731707,
-      "RN": 13.133208255159476
+      "RN": 13.133208255159476,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 52.62664165103189,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-4<br><hr>Divers : 52.6% (561 voix)<br>Rassemblement National : 13.1% (140 voix)<br>Les Républicains : 12.4% (132 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-4<br><hr>Ensemble (Majorité Pres.) : 52.6% (561 voix)<br>Rassemblement National : 13.1% (140 voix)<br>Les Républicains : 12.4% (132 voix)<br>"
   },
   {
     "id_bv": "8-5",
@@ -12475,27 +12523,29 @@
       "EXG": 2,
       "DVC": 7,
       "REC": 21,
-      "DIV": 663,
+      "ENS": 663,
       "REG": 1,
       "LR": 117,
       "DVD": 92,
-      "RN": 142
+      "RN": 142,
+      "DIV": 0
     },
     "proportions": {
       "UG": 17.716535433070867,
       "EXG": 0.15748031496062992,
       "DVC": 0.5511811023622047,
       "REC": 1.6535433070866141,
-      "DIV": 52.20472440944882,
+      "ENS": 52.20472440944882,
       "REG": 0.07874015748031496,
       "LR": 9.212598425196852,
       "DVD": 7.244094488188976,
-      "RN": 11.181102362204724
+      "RN": 11.181102362204724,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 52.20472440944882,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-5<br><hr>Divers : 52.2% (663 voix)<br>Union de la Gauche / NFP : 17.7% (225 voix)<br>Rassemblement National : 11.2% (142 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-5<br><hr>Ensemble (Majorité Pres.) : 52.2% (663 voix)<br>Union de la Gauche / NFP : 17.7% (225 voix)<br>Rassemblement National : 11.2% (142 voix)<br>"
   },
   {
     "id_bv": "8-6",
@@ -12513,27 +12563,29 @@
       "EXG": 4,
       "DVC": 12,
       "REC": 27,
-      "DIV": 503,
+      "ENS": 503,
       "REG": 1,
       "LR": 84,
       "DVD": 69,
-      "RN": 133
+      "RN": 133,
+      "DIV": 0
     },
     "proportions": {
       "UG": 26.73702726473175,
       "EXG": 0.3518029903254178,
       "DVC": 1.0554089709762533,
       "REC": 2.3746701846965697,
-      "DIV": 44.23922603342129,
+      "ENS": 44.23922603342129,
       "REG": 0.08795074758135445,
       "LR": 7.387862796833773,
       "DVD": 6.068601583113456,
-      "RN": 11.697449428320141
+      "RN": 11.697449428320141,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 44.23922603342129,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-6<br><hr>Divers : 44.2% (503 voix)<br>Union de la Gauche / NFP : 26.7% (304 voix)<br>Rassemblement National : 11.7% (133 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-6<br><hr>Ensemble (Majorité Pres.) : 44.2% (503 voix)<br>Union de la Gauche / NFP : 26.7% (304 voix)<br>Rassemblement National : 11.7% (133 voix)<br>"
   },
   {
     "id_bv": "8-7",
@@ -12551,27 +12603,29 @@
       "EXG": 3,
       "DVC": 15,
       "REC": 16,
-      "DIV": 558,
+      "ENS": 558,
       "REG": 3,
       "LR": 77,
       "DVD": 82,
-      "RN": 121
+      "RN": 121,
+      "DIV": 0
     },
     "proportions": {
       "UG": 27.14404662781016,
       "EXG": 0.2497918401332223,
       "DVC": 1.2489592006661114,
       "REC": 1.3322231473771857,
-      "DIV": 46.46128226477935,
+      "ENS": 46.46128226477935,
       "REG": 0.2497918401332223,
       "LR": 6.411323896752706,
       "DVD": 6.827643630308076,
-      "RN": 10.074937552039968
+      "RN": 10.074937552039968,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 46.46128226477935,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-7<br><hr>Divers : 46.5% (558 voix)<br>Union de la Gauche / NFP : 27.1% (326 voix)<br>Rassemblement National : 10.1% (121 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-7<br><hr>Ensemble (Majorité Pres.) : 46.5% (558 voix)<br>Union de la Gauche / NFP : 27.1% (326 voix)<br>Rassemblement National : 10.1% (121 voix)<br>"
   },
   {
     "id_bv": "8-8",
@@ -12589,27 +12643,29 @@
       "EXG": 6,
       "DVC": 7,
       "REC": 17,
-      "DIV": 503,
+      "ENS": 503,
       "REG": 2,
       "LR": 69,
       "DVD": 78,
-      "RN": 124
+      "RN": 124,
+      "DIV": 0
     },
     "proportions": {
       "UG": 30.993150684931507,
       "EXG": 0.5136986301369862,
       "DVC": 0.5993150684931506,
       "REC": 1.4554794520547945,
-      "DIV": 43.06506849315068,
+      "ENS": 43.06506849315068,
       "REG": 0.17123287671232876,
       "LR": 5.907534246575342,
       "DVD": 6.678082191780822,
-      "RN": 10.616438356164384
+      "RN": 10.616438356164384,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 43.06506849315068,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-8<br><hr>Divers : 43.1% (503 voix)<br>Union de la Gauche / NFP : 31.0% (362 voix)<br>Rassemblement National : 10.6% (124 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-8<br><hr>Ensemble (Majorité Pres.) : 43.1% (503 voix)<br>Union de la Gauche / NFP : 31.0% (362 voix)<br>Rassemblement National : 10.6% (124 voix)<br>"
   },
   {
     "id_bv": "8-9",
@@ -12627,27 +12683,29 @@
       "EXG": 3,
       "DVC": 11,
       "REC": 22,
-      "DIV": 618,
+      "ENS": 618,
       "REG": 0,
       "LR": 103,
       "DVD": 95,
-      "RN": 176
+      "RN": 176,
+      "DIV": 0
     },
     "proportions": {
       "UG": 19.875292283710056,
       "EXG": 0.23382696804364772,
       "DVC": 0.857365549493375,
       "REC": 1.71473109898675,
-      "DIV": 48.168355416991425,
+      "ENS": 48.168355416991425,
       "REG": 0.0,
       "LR": 8.028059236165237,
       "DVD": 7.40452065471551,
-      "RN": 13.717848791894
+      "RN": 13.717848791894,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 48.168355416991425,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-9<br><hr>Divers : 48.2% (618 voix)<br>Union de la Gauche / NFP : 19.9% (255 voix)<br>Rassemblement National : 13.7% (176 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-9<br><hr>Ensemble (Majorité Pres.) : 48.2% (618 voix)<br>Union de la Gauche / NFP : 19.9% (255 voix)<br>Rassemblement National : 13.7% (176 voix)<br>"
   },
   {
     "id_bv": "8-10",
@@ -12665,27 +12723,29 @@
       "EXG": 1,
       "DVC": 7,
       "REC": 13,
-      "DIV": 366,
+      "ENS": 366,
       "REG": 1,
       "LR": 58,
       "DVD": 62,
-      "RN": 114
+      "RN": 114,
+      "DIV": 0
     },
     "proportions": {
       "UG": 17.50663129973475,
       "EXG": 0.1326259946949602,
       "DVC": 0.9283819628647214,
       "REC": 1.7241379310344827,
-      "DIV": 48.54111405835544,
+      "ENS": 48.54111405835544,
       "REG": 0.1326259946949602,
       "LR": 7.6923076923076925,
       "DVD": 8.222811671087534,
-      "RN": 15.119363395225463
+      "RN": 15.119363395225463,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 48.54111405835544,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-10<br><hr>Divers : 48.5% (366 voix)<br>Union de la Gauche / NFP : 17.5% (132 voix)<br>Rassemblement National : 15.1% (114 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-10<br><hr>Ensemble (Majorité Pres.) : 48.5% (366 voix)<br>Union de la Gauche / NFP : 17.5% (132 voix)<br>Rassemblement National : 15.1% (114 voix)<br>"
   },
   {
     "id_bv": "8-11",
@@ -12703,27 +12763,29 @@
       "EXG": 4,
       "DVC": 4,
       "REC": 24,
-      "DIV": 373,
+      "ENS": 373,
       "REG": 0,
       "LR": 69,
       "DVD": 73,
-      "RN": 92
+      "RN": 92,
+      "DIV": 0
     },
     "proportions": {
       "UG": 23.47305389221557,
       "EXG": 0.47904191616766467,
       "DVC": 0.47904191616766467,
       "REC": 2.874251497005988,
-      "DIV": 44.67065868263473,
+      "ENS": 44.67065868263473,
       "REG": 0.0,
       "LR": 8.263473053892216,
       "DVD": 8.742514970059881,
-      "RN": 11.017964071856287
+      "RN": 11.017964071856287,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 44.67065868263473,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-11<br><hr>Divers : 44.7% (373 voix)<br>Union de la Gauche / NFP : 23.5% (196 voix)<br>Rassemblement National : 11.0% (92 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-11<br><hr>Ensemble (Majorité Pres.) : 44.7% (373 voix)<br>Union de la Gauche / NFP : 23.5% (196 voix)<br>Rassemblement National : 11.0% (92 voix)<br>"
   },
   {
     "id_bv": "8-12",
@@ -12741,27 +12803,29 @@
       "EXG": 2,
       "DVC": 10,
       "REC": 21,
-      "DIV": 373,
+      "ENS": 373,
       "REG": 0,
       "LR": 89,
       "DVD": 61,
-      "RN": 185
+      "RN": 185,
+      "DIV": 0
     },
     "proportions": {
       "UG": 17.391304347826086,
       "EXG": 0.2229654403567447,
       "DVC": 1.1148272017837235,
       "REC": 2.341137123745819,
-      "DIV": 41.58305462653289,
+      "ENS": 41.58305462653289,
       "REG": 0.0,
       "LR": 9.92196209587514,
       "DVD": 6.800445930880714,
-      "RN": 20.624303232998887
+      "RN": 20.624303232998887,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 41.58305462653289,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-12<br><hr>Divers : 41.6% (373 voix)<br>Rassemblement National : 20.6% (185 voix)<br>Union de la Gauche / NFP : 17.4% (156 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-12<br><hr>Ensemble (Majorité Pres.) : 41.6% (373 voix)<br>Rassemblement National : 20.6% (185 voix)<br>Union de la Gauche / NFP : 17.4% (156 voix)<br>"
   },
   {
     "id_bv": "8-13",
@@ -12779,27 +12843,29 @@
       "EXG": 4,
       "DVC": 9,
       "REC": 18,
-      "DIV": 523,
+      "ENS": 523,
       "REG": 4,
       "LR": 76,
       "DVD": 72,
-      "RN": 148
+      "RN": 148,
+      "DIV": 0
     },
     "proportions": {
       "UG": 16.682926829268293,
       "EXG": 0.3902439024390244,
       "DVC": 0.878048780487805,
       "REC": 1.75609756097561,
-      "DIV": 51.02439024390244,
+      "ENS": 51.02439024390244,
       "REG": 0.3902439024390244,
       "LR": 7.414634146341463,
       "DVD": 7.02439024390244,
-      "RN": 14.439024390243901
+      "RN": 14.439024390243901,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 51.02439024390244,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-13<br><hr>Divers : 51.0% (523 voix)<br>Union de la Gauche / NFP : 16.7% (171 voix)<br>Rassemblement National : 14.4% (148 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-13<br><hr>Ensemble (Majorité Pres.) : 51.0% (523 voix)<br>Union de la Gauche / NFP : 16.7% (171 voix)<br>Rassemblement National : 14.4% (148 voix)<br>"
   },
   {
     "id_bv": "8-14",
@@ -12817,27 +12883,29 @@
       "EXG": 2,
       "DVC": 7,
       "REC": 32,
-      "DIV": 478,
+      "ENS": 478,
       "REG": 0,
       "LR": 114,
       "DVD": 55,
-      "RN": 171
+      "RN": 171,
+      "DIV": 0
     },
     "proportions": {
       "UG": 19.342723004694836,
       "EXG": 0.18779342723004694,
       "DVC": 0.6572769953051643,
       "REC": 3.004694835680751,
-      "DIV": 44.88262910798122,
+      "ENS": 44.88262910798122,
       "REG": 0.0,
       "LR": 10.704225352112676,
       "DVD": 5.164319248826291,
-      "RN": 16.056338028169016
+      "RN": 16.056338028169016,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 44.88262910798122,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-14<br><hr>Divers : 44.9% (478 voix)<br>Union de la Gauche / NFP : 19.3% (206 voix)<br>Rassemblement National : 16.1% (171 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-14<br><hr>Ensemble (Majorité Pres.) : 44.9% (478 voix)<br>Union de la Gauche / NFP : 19.3% (206 voix)<br>Rassemblement National : 16.1% (171 voix)<br>"
   },
   {
     "id_bv": "8-15",
@@ -12855,27 +12923,29 @@
       "EXG": 4,
       "DVC": 7,
       "REC": 35,
-      "DIV": 574,
+      "ENS": 574,
       "REG": 2,
       "LR": 113,
       "DVD": 77,
-      "RN": 171
+      "RN": 171,
+      "DIV": 0
     },
     "proportions": {
       "UG": 13.31569664902998,
       "EXG": 0.3527336860670194,
       "DVC": 0.6172839506172839,
       "REC": 3.0864197530864197,
-      "DIV": 50.617283950617285,
+      "ENS": 50.617283950617285,
       "REG": 0.1763668430335097,
       "LR": 9.964726631393297,
       "DVD": 6.790123456790123,
-      "RN": 15.079365079365079
+      "RN": 15.079365079365079,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 50.617283950617285,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-15<br><hr>Divers : 50.6% (574 voix)<br>Rassemblement National : 15.1% (171 voix)<br>Union de la Gauche / NFP : 13.3% (151 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-15<br><hr>Ensemble (Majorité Pres.) : 50.6% (574 voix)<br>Rassemblement National : 15.1% (171 voix)<br>Union de la Gauche / NFP : 13.3% (151 voix)<br>"
   },
   {
     "id_bv": "8-16",
@@ -12893,27 +12963,29 @@
       "EXG": 2,
       "DVC": 11,
       "REC": 41,
-      "DIV": 568,
+      "ENS": 568,
       "REG": 0,
       "LR": 125,
       "DVD": 81,
-      "RN": 173
+      "RN": 173,
+      "DIV": 0
     },
     "proportions": {
       "UG": 14.517506404782237,
       "EXG": 0.1707941929974381,
       "DVC": 0.9393680614859093,
       "REC": 3.5012809564474807,
-      "DIV": 48.50555081127242,
+      "ENS": 48.50555081127242,
       "REG": 0.0,
       "LR": 10.67463706233988,
       "DVD": 6.917164816396243,
-      "RN": 14.773697694278395
+      "RN": 14.773697694278395,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 48.50555081127242,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-16<br><hr>Divers : 48.5% (568 voix)<br>Rassemblement National : 14.8% (173 voix)<br>Union de la Gauche / NFP : 14.5% (170 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-16<br><hr>Ensemble (Majorité Pres.) : 48.5% (568 voix)<br>Rassemblement National : 14.8% (173 voix)<br>Union de la Gauche / NFP : 14.5% (170 voix)<br>"
   },
   {
     "id_bv": "8-17",
@@ -12931,27 +13003,29 @@
       "EXG": 1,
       "DVC": 1,
       "REC": 12,
-      "DIV": 240,
+      "ENS": 240,
       "REG": 0,
       "LR": 53,
       "DVD": 31,
-      "RN": 108
+      "RN": 108,
+      "DIV": 0
     },
     "proportions": {
       "UG": 17.40740740740741,
       "EXG": 0.1851851851851852,
       "DVC": 0.1851851851851852,
       "REC": 2.2222222222222223,
-      "DIV": 44.44444444444444,
+      "ENS": 44.44444444444444,
       "REG": 0.0,
       "LR": 9.814814814814815,
       "DVD": 5.7407407407407405,
-      "RN": 20.0
+      "RN": 20.0,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 44.44444444444444,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-17<br><hr>Divers : 44.4% (240 voix)<br>Rassemblement National : 20.0% (108 voix)<br>Union de la Gauche / NFP : 17.4% (94 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-17<br><hr>Ensemble (Majorité Pres.) : 44.4% (240 voix)<br>Rassemblement National : 20.0% (108 voix)<br>Union de la Gauche / NFP : 17.4% (94 voix)<br>"
   },
   {
     "id_bv": "8-18",
@@ -12969,27 +13043,29 @@
       "EXG": 0,
       "DVC": 3,
       "REC": 19,
-      "DIV": 253,
+      "ENS": 253,
       "REG": 1,
       "LR": 66,
       "DVD": 37,
-      "RN": 119
+      "RN": 119,
+      "DIV": 0
     },
     "proportions": {
       "UG": 15.306122448979592,
       "EXG": 0.0,
       "DVC": 0.5102040816326531,
       "REC": 3.231292517006803,
-      "DIV": 43.02721088435374,
+      "ENS": 43.02721088435374,
       "REG": 0.17006802721088435,
       "LR": 11.224489795918368,
       "DVD": 6.292517006802721,
-      "RN": 20.238095238095237
+      "RN": 20.238095238095237,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 43.02721088435374,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 8-18<br><hr>Divers : 43.0% (253 voix)<br>Rassemblement National : 20.2% (119 voix)<br>Union de la Gauche / NFP : 15.3% (90 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 8-18<br><hr>Ensemble (Majorité Pres.) : 43.0% (253 voix)<br>Rassemblement National : 20.2% (119 voix)<br>Union de la Gauche / NFP : 15.3% (90 voix)<br>"
   },
   {
     "id_bv": "9-1",
@@ -13007,27 +13083,29 @@
       "EXG": 6,
       "DVC": 8,
       "REC": 12,
-      "DIV": 403,
+      "ENS": 403,
       "REG": 1,
       "LR": 50,
       "DVD": 25,
-      "RN": 89
+      "RN": 89,
+      "DIV": 0
     },
     "proportions": {
       "UG": 37.80104712041884,
       "EXG": 0.6282722513089005,
       "DVC": 0.8376963350785341,
       "REC": 1.256544502617801,
-      "DIV": 42.19895287958116,
+      "ENS": 42.19895287958116,
       "REG": 0.10471204188481677,
       "LR": 5.2356020942408374,
       "DVD": 2.6178010471204187,
-      "RN": 9.319371727748692
+      "RN": 9.319371727748692,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 42.19895287958116,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-1<br><hr>Divers : 42.2% (403 voix)<br>Union de la Gauche / NFP : 37.8% (361 voix)<br>Rassemblement National : 9.3% (89 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-1<br><hr>Ensemble (Majorité Pres.) : 42.2% (403 voix)<br>Union de la Gauche / NFP : 37.8% (361 voix)<br>Rassemblement National : 9.3% (89 voix)<br>"
   },
   {
     "id_bv": "9-2",
@@ -13045,27 +13123,29 @@
       "EXG": 5,
       "DVC": 13,
       "REC": 14,
-      "DIV": 442,
+      "ENS": 442,
       "REG": 1,
       "LR": 28,
       "DVD": 30,
-      "RN": 75
+      "RN": 75,
+      "DIV": 0
     },
     "proportions": {
       "UG": 46.43171806167401,
       "EXG": 0.4405286343612335,
       "DVC": 1.145374449339207,
       "REC": 1.2334801762114538,
-      "DIV": 38.942731277533035,
+      "ENS": 38.942731277533035,
       "REG": 0.0881057268722467,
       "LR": 2.4669603524229076,
       "DVD": 2.643171806167401,
-      "RN": 6.607929515418502
+      "RN": 6.607929515418502,
+      "DIV": 0.0
     },
     "winner_party": "UG",
     "winner_score": 46.43171806167401,
     "winner_color": "#E40046",
-    "top3_html": "<b>Bureau :</b> 9-2<br><hr>Union de la Gauche / NFP : 46.4% (527 voix)<br>Divers : 38.9% (442 voix)<br>Rassemblement National : 6.6% (75 voix)<br>"
+    "top3_html": "<b>Bureau :</b> 9-2<br><hr>Union de la Gauche / NFP : 46.4% (527 voix)<br>Ensemble (Majorité Pres.) : 38.9% (442 voix)<br>Rassemblement National : 6.6% (75 voix)<br>"
   },
   {
     "id_bv": "9-3",
@@ -13083,27 +13163,29 @@
       "EXG": 2,
       "DVC": 9,
       "REC": 12,
-      "DIV": 471,
+      "ENS": 471,
       "REG": 1,
       "LR": 41,
       "DVD": 38,
-      "RN": 100
+      "RN": 100,
+      "DIV": 0
     },
     "proportions": {
       "UG": 39.71377459749553,
       "EXG": 0.17889087656529518,
       "DVC": 0.8050089445438283,
       "REC": 1.073345259391771,
-      "DIV": 42.12880143112701,
+      "ENS": 42.12880143112701,
       "REG": 0.08944543828264759,
       "LR": 3.667262969588551,
       "DVD": 3.3989266547406083,
-      "RN": 8.94454382826476
+      "RN": 8.94454382826476,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 42.12880143112701,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-3<br><hr>Divers : 42.1% (471 voix)<br>Union de la Gauche / NFP : 39.7% (444 voix)<br>Rassemblement National : 8.9% (100 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-3<br><hr>Ensemble (Majorité Pres.) : 42.1% (471 voix)<br>Union de la Gauche / NFP : 39.7% (444 voix)<br>Rassemblement National : 8.9% (100 voix)<br>"
   },
   {
     "id_bv": "9-4",
@@ -13121,27 +13203,29 @@
       "EXG": 6,
       "DVC": 12,
       "REC": 23,
-      "DIV": 472,
+      "ENS": 472,
       "REG": 1,
       "LR": 42,
       "DVD": 38,
-      "RN": 85
+      "RN": 85,
+      "DIV": 0
     },
     "proportions": {
       "UG": 40.07060900264784,
       "EXG": 0.529567519858782,
       "DVC": 1.059135039717564,
       "REC": 2.0300088261253313,
-      "DIV": 41.65931156222418,
+      "ENS": 41.65931156222418,
       "REG": 0.088261253309797,
       "LR": 3.7069726390114734,
       "DVD": 3.3539276257722856,
-      "RN": 7.502206531332744
+      "RN": 7.502206531332744,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 41.65931156222418,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-4<br><hr>Divers : 41.7% (472 voix)<br>Union de la Gauche / NFP : 40.1% (454 voix)<br>Rassemblement National : 7.5% (85 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-4<br><hr>Ensemble (Majorité Pres.) : 41.7% (472 voix)<br>Union de la Gauche / NFP : 40.1% (454 voix)<br>Rassemblement National : 7.5% (85 voix)<br>"
   },
   {
     "id_bv": "9-5",
@@ -13159,27 +13243,29 @@
       "EXG": 4,
       "DVC": 9,
       "REC": 15,
-      "DIV": 524,
+      "ENS": 524,
       "REG": 0,
       "LR": 50,
       "DVD": 40,
-      "RN": 74
+      "RN": 74,
+      "DIV": 0
     },
     "proportions": {
       "UG": 38.22260569456428,
       "EXG": 0.3451251078515962,
       "DVC": 0.7765314926660914,
       "REC": 1.2942191544434858,
-      "DIV": 45.211389128559105,
+      "ENS": 45.211389128559105,
       "REG": 0.0,
       "LR": 4.3140638481449525,
       "DVD": 3.4512510785159622,
-      "RN": 6.38481449525453
+      "RN": 6.38481449525453,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 45.211389128559105,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-5<br><hr>Divers : 45.2% (524 voix)<br>Union de la Gauche / NFP : 38.2% (443 voix)<br>Rassemblement National : 6.4% (74 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-5<br><hr>Ensemble (Majorité Pres.) : 45.2% (524 voix)<br>Union de la Gauche / NFP : 38.2% (443 voix)<br>Rassemblement National : 6.4% (74 voix)<br>"
   },
   {
     "id_bv": "9-6",
@@ -13197,27 +13283,29 @@
       "EXG": 6,
       "DVC": 5,
       "REC": 11,
-      "DIV": 514,
+      "ENS": 514,
       "REG": 2,
       "LR": 54,
       "DVD": 35,
-      "RN": 97
+      "RN": 97,
+      "DIV": 0
     },
     "proportions": {
       "UG": 32.90083410565338,
       "EXG": 0.5560704355885079,
       "DVC": 0.46339202965708987,
       "REC": 1.0194624652455977,
-      "DIV": 47.63670064874884,
+      "ENS": 47.63670064874884,
       "REG": 0.18535681186283595,
       "LR": 5.004633920296571,
       "DVD": 3.243744207599629,
-      "RN": 8.989805375347544
+      "RN": 8.989805375347544,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 47.63670064874884,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-6<br><hr>Divers : 47.6% (514 voix)<br>Union de la Gauche / NFP : 32.9% (355 voix)<br>Rassemblement National : 9.0% (97 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-6<br><hr>Ensemble (Majorité Pres.) : 47.6% (514 voix)<br>Union de la Gauche / NFP : 32.9% (355 voix)<br>Rassemblement National : 9.0% (97 voix)<br>"
   },
   {
     "id_bv": "9-7",
@@ -13235,27 +13323,29 @@
       "EXG": 3,
       "DVC": 5,
       "REC": 18,
-      "DIV": 465,
+      "ENS": 465,
       "REG": 1,
       "LR": 56,
       "DVD": 45,
-      "RN": 122
+      "RN": 122,
+      "DIV": 0
     },
     "proportions": {
       "UG": 30.107526881720432,
       "EXG": 0.2932551319648094,
       "DVC": 0.4887585532746823,
       "REC": 1.7595307917888565,
-      "DIV": 45.45454545454545,
+      "ENS": 45.45454545454545,
       "REG": 0.09775171065493646,
       "LR": 5.474095796676441,
       "DVD": 4.398826979472141,
-      "RN": 11.925708699902248
+      "RN": 11.925708699902248,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 45.45454545454545,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-7<br><hr>Divers : 45.5% (465 voix)<br>Union de la Gauche / NFP : 30.1% (308 voix)<br>Rassemblement National : 11.9% (122 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-7<br><hr>Ensemble (Majorité Pres.) : 45.5% (465 voix)<br>Union de la Gauche / NFP : 30.1% (308 voix)<br>Rassemblement National : 11.9% (122 voix)<br>"
   },
   {
     "id_bv": "9-8",
@@ -13273,27 +13363,29 @@
       "EXG": 2,
       "DVC": 12,
       "REC": 13,
-      "DIV": 626,
+      "ENS": 626,
       "REG": 3,
       "LR": 55,
       "DVD": 60,
-      "RN": 85
+      "RN": 85,
+      "DIV": 0
     },
     "proportions": {
       "UG": 30.349877949552486,
       "EXG": 0.16273393002441008,
       "DVC": 0.9764035801464606,
       "REC": 1.0577705451586654,
-      "DIV": 50.935720097640356,
+      "ENS": 50.935720097640356,
       "REG": 0.24410089503661514,
       "LR": 4.475183075671278,
       "DVD": 4.882017900732303,
-      "RN": 6.91619202603743
+      "RN": 6.91619202603743,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 50.935720097640356,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-8<br><hr>Divers : 50.9% (626 voix)<br>Union de la Gauche / NFP : 30.3% (373 voix)<br>Rassemblement National : 6.9% (85 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-8<br><hr>Ensemble (Majorité Pres.) : 50.9% (626 voix)<br>Union de la Gauche / NFP : 30.3% (373 voix)<br>Rassemblement National : 6.9% (85 voix)<br>"
   },
   {
     "id_bv": "9-9",
@@ -13311,27 +13403,29 @@
       "EXG": 4,
       "DVC": 10,
       "REC": 13,
-      "DIV": 524,
+      "ENS": 524,
       "REG": 0,
       "LR": 42,
       "DVD": 50,
-      "RN": 80
+      "RN": 80,
+      "DIV": 0
     },
     "proportions": {
       "UG": 31.404174573055027,
       "EXG": 0.3795066413662239,
       "DVC": 0.9487666034155597,
       "REC": 1.2333965844402277,
-      "DIV": 49.71537001897533,
+      "ENS": 49.71537001897533,
       "REG": 0.0,
       "LR": 3.984819734345351,
       "DVD": 4.743833017077799,
-      "RN": 7.590132827324478
+      "RN": 7.590132827324478,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 49.71537001897533,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-9<br><hr>Divers : 49.7% (524 voix)<br>Union de la Gauche / NFP : 31.4% (331 voix)<br>Rassemblement National : 7.6% (80 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-9<br><hr>Ensemble (Majorité Pres.) : 49.7% (524 voix)<br>Union de la Gauche / NFP : 31.4% (331 voix)<br>Rassemblement National : 7.6% (80 voix)<br>"
   },
   {
     "id_bv": "9-10",
@@ -13349,27 +13443,29 @@
       "EXG": 2,
       "DVC": 13,
       "REC": 17,
-      "DIV": 579,
+      "ENS": 579,
       "REG": 1,
       "LR": 49,
       "DVD": 57,
-      "RN": 88
+      "RN": 88,
+      "DIV": 0
     },
     "proportions": {
       "UG": 33.33333333333333,
       "EXG": 0.1654259718775848,
       "DVC": 1.0752688172043012,
       "REC": 1.4061207609594708,
-      "DIV": 47.8908188585608,
+      "ENS": 47.8908188585608,
       "REG": 0.0827129859387924,
       "LR": 4.052936311000828,
       "DVD": 4.714640198511166,
-      "RN": 7.278742762613731
+      "RN": 7.278742762613731,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 47.8908188585608,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-10<br><hr>Divers : 47.9% (579 voix)<br>Union de la Gauche / NFP : 33.3% (403 voix)<br>Rassemblement National : 7.3% (88 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-10<br><hr>Ensemble (Majorité Pres.) : 47.9% (579 voix)<br>Union de la Gauche / NFP : 33.3% (403 voix)<br>Rassemblement National : 7.3% (88 voix)<br>"
   },
   {
     "id_bv": "9-11",
@@ -13387,27 +13483,29 @@
       "EXG": 5,
       "DVC": 14,
       "REC": 11,
-      "DIV": 519,
+      "ENS": 519,
       "REG": 1,
       "LR": 37,
       "DVD": 37,
-      "RN": 73
+      "RN": 73,
+      "DIV": 0
     },
     "proportions": {
       "UG": 40.12027491408935,
       "EXG": 0.429553264604811,
       "DVC": 1.202749140893471,
       "REC": 0.9450171821305842,
-      "DIV": 44.58762886597938,
+      "ENS": 44.58762886597938,
       "REG": 0.0859106529209622,
       "LR": 3.178694158075601,
       "DVD": 3.178694158075601,
-      "RN": 6.2714776632302405
+      "RN": 6.2714776632302405,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 44.58762886597938,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-11<br><hr>Divers : 44.6% (519 voix)<br>Union de la Gauche / NFP : 40.1% (467 voix)<br>Rassemblement National : 6.3% (73 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-11<br><hr>Ensemble (Majorité Pres.) : 44.6% (519 voix)<br>Union de la Gauche / NFP : 40.1% (467 voix)<br>Rassemblement National : 6.3% (73 voix)<br>"
   },
   {
     "id_bv": "9-12",
@@ -13425,27 +13523,29 @@
       "EXG": 5,
       "DVC": 9,
       "REC": 12,
-      "DIV": 472,
+      "ENS": 472,
       "REG": 0,
       "LR": 42,
       "DVD": 41,
-      "RN": 73
+      "RN": 73,
+      "DIV": 0
     },
     "proportions": {
       "UG": 41.76313446126447,
       "EXG": 0.44523597506678536,
       "DVC": 0.8014247551202136,
       "REC": 1.068566340160285,
-      "DIV": 42.03027604630454,
+      "ENS": 42.03027604630454,
       "REG": 0.0,
       "LR": 3.7399821905609976,
       "DVD": 3.6509349955476402,
-      "RN": 6.500445235975066
+      "RN": 6.500445235975066,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 42.03027604630454,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-12<br><hr>Divers : 42.0% (472 voix)<br>Union de la Gauche / NFP : 41.8% (469 voix)<br>Rassemblement National : 6.5% (73 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-12<br><hr>Ensemble (Majorité Pres.) : 42.0% (472 voix)<br>Union de la Gauche / NFP : 41.8% (469 voix)<br>Rassemblement National : 6.5% (73 voix)<br>"
   },
   {
     "id_bv": "9-13",
@@ -13463,27 +13563,29 @@
       "EXG": 3,
       "DVC": 14,
       "REC": 14,
-      "DIV": 458,
+      "ENS": 458,
       "REG": 4,
       "LR": 40,
       "DVD": 24,
-      "RN": 90
+      "RN": 90,
+      "DIV": 0
     },
     "proportions": {
       "UG": 45.26226734348562,
       "EXG": 0.25380710659898476,
       "DVC": 1.1844331641285957,
       "REC": 1.1844331641285957,
-      "DIV": 38.74788494077834,
+      "ENS": 38.74788494077834,
       "REG": 0.338409475465313,
       "LR": 3.3840947546531304,
       "DVD": 2.030456852791878,
-      "RN": 7.614213197969544
+      "RN": 7.614213197969544,
+      "DIV": 0.0
     },
     "winner_party": "UG",
     "winner_score": 45.26226734348562,
     "winner_color": "#E40046",
-    "top3_html": "<b>Bureau :</b> 9-13<br><hr>Union de la Gauche / NFP : 45.3% (535 voix)<br>Divers : 38.7% (458 voix)<br>Rassemblement National : 7.6% (90 voix)<br>"
+    "top3_html": "<b>Bureau :</b> 9-13<br><hr>Union de la Gauche / NFP : 45.3% (535 voix)<br>Ensemble (Majorité Pres.) : 38.7% (458 voix)<br>Rassemblement National : 7.6% (90 voix)<br>"
   },
   {
     "id_bv": "9-14",
@@ -13501,27 +13603,29 @@
       "EXG": 5,
       "DVC": 12,
       "REC": 18,
-      "DIV": 604,
+      "ENS": 604,
       "REG": 1,
       "LR": 51,
       "DVD": 42,
-      "RN": 75
+      "RN": 75,
+      "DIV": 0
     },
     "proportions": {
       "UG": 35.87301587301587,
       "EXG": 0.3968253968253968,
       "DVC": 0.9523809523809524,
       "REC": 1.4285714285714286,
-      "DIV": 47.93650793650794,
+      "ENS": 47.93650793650794,
       "REG": 0.07936507936507936,
       "LR": 4.0476190476190474,
       "DVD": 3.3333333333333335,
-      "RN": 5.952380952380952
+      "RN": 5.952380952380952,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 47.93650793650794,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-14<br><hr>Divers : 47.9% (604 voix)<br>Union de la Gauche / NFP : 35.9% (452 voix)<br>Rassemblement National : 6.0% (75 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-14<br><hr>Ensemble (Majorité Pres.) : 47.9% (604 voix)<br>Union de la Gauche / NFP : 35.9% (452 voix)<br>Rassemblement National : 6.0% (75 voix)<br>"
   },
   {
     "id_bv": "9-15",
@@ -13539,27 +13643,29 @@
       "EXG": 7,
       "DVC": 14,
       "REC": 6,
-      "DIV": 514,
+      "ENS": 514,
       "REG": 2,
       "LR": 55,
       "DVD": 43,
-      "RN": 84
+      "RN": 84,
+      "DIV": 0
     },
     "proportions": {
       "UG": 36.40350877192983,
       "EXG": 0.6140350877192983,
       "DVC": 1.2280701754385965,
       "REC": 0.5263157894736842,
-      "DIV": 45.08771929824562,
+      "ENS": 45.08771929824562,
       "REG": 0.17543859649122806,
       "LR": 4.824561403508771,
       "DVD": 3.7719298245614032,
-      "RN": 7.368421052631578
+      "RN": 7.368421052631578,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 45.08771929824562,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-15<br><hr>Divers : 45.1% (514 voix)<br>Union de la Gauche / NFP : 36.4% (415 voix)<br>Rassemblement National : 7.4% (84 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-15<br><hr>Ensemble (Majorité Pres.) : 45.1% (514 voix)<br>Union de la Gauche / NFP : 36.4% (415 voix)<br>Rassemblement National : 7.4% (84 voix)<br>"
   },
   {
     "id_bv": "9-16",
@@ -13577,27 +13683,29 @@
       "EXG": 2,
       "DVC": 11,
       "REC": 9,
-      "DIV": 503,
+      "ENS": 503,
       "REG": 0,
       "LR": 55,
       "DVD": 50,
-      "RN": 82
+      "RN": 82,
+      "DIV": 0
     },
     "proportions": {
       "UG": 35.74007220216607,
       "EXG": 0.18050541516245489,
       "DVC": 0.9927797833935018,
       "REC": 0.8122743682310468,
-      "DIV": 45.3971119133574,
+      "ENS": 45.3971119133574,
       "REG": 0.0,
       "LR": 4.9638989169675085,
       "DVD": 4.512635379061372,
-      "RN": 7.400722021660649
+      "RN": 7.400722021660649,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 45.3971119133574,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-16<br><hr>Divers : 45.4% (503 voix)<br>Union de la Gauche / NFP : 35.7% (396 voix)<br>Rassemblement National : 7.4% (82 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-16<br><hr>Ensemble (Majorité Pres.) : 45.4% (503 voix)<br>Union de la Gauche / NFP : 35.7% (396 voix)<br>Rassemblement National : 7.4% (82 voix)<br>"
   },
   {
     "id_bv": "9-17",
@@ -13615,27 +13723,29 @@
       "EXG": 4,
       "DVC": 13,
       "REC": 11,
-      "DIV": 502,
+      "ENS": 502,
       "REG": 0,
       "LR": 54,
       "DVD": 43,
-      "RN": 105
+      "RN": 105,
+      "DIV": 0
     },
     "proportions": {
       "UG": 33.5149863760218,
       "EXG": 0.36330608537693004,
       "DVC": 1.1807447774750226,
       "REC": 0.9990917347865577,
-      "DIV": 45.594913714804726,
+      "ENS": 45.594913714804726,
       "REG": 0.0,
       "LR": 4.904632152588556,
       "DVD": 3.905540417801998,
-      "RN": 9.536784741144414
+      "RN": 9.536784741144414,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 45.594913714804726,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-17<br><hr>Divers : 45.6% (502 voix)<br>Union de la Gauche / NFP : 33.5% (369 voix)<br>Rassemblement National : 9.5% (105 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-17<br><hr>Ensemble (Majorité Pres.) : 45.6% (502 voix)<br>Union de la Gauche / NFP : 33.5% (369 voix)<br>Rassemblement National : 9.5% (105 voix)<br>"
   },
   {
     "id_bv": "9-18",
@@ -13653,27 +13763,29 @@
       "EXG": 11,
       "DVC": 15,
       "REC": 12,
-      "DIV": 487,
+      "ENS": 487,
       "REG": 5,
       "LR": 40,
       "DVD": 40,
-      "RN": 94
+      "RN": 94,
+      "DIV": 0
     },
     "proportions": {
       "UG": 40.28837998303647,
       "EXG": 0.9329940627650551,
       "DVC": 1.2722646310432568,
       "REC": 1.0178117048346056,
-      "DIV": 41.30619168787108,
+      "ENS": 41.30619168787108,
       "REG": 0.4240882103477523,
       "LR": 3.3927056827820183,
       "DVD": 3.3927056827820183,
-      "RN": 7.9728583545377445
+      "RN": 7.9728583545377445,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 41.30619168787108,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-18<br><hr>Divers : 41.3% (487 voix)<br>Union de la Gauche / NFP : 40.3% (475 voix)<br>Rassemblement National : 8.0% (94 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-18<br><hr>Ensemble (Majorité Pres.) : 41.3% (487 voix)<br>Union de la Gauche / NFP : 40.3% (475 voix)<br>Rassemblement National : 8.0% (94 voix)<br>"
   },
   {
     "id_bv": "9-19",
@@ -13691,27 +13803,29 @@
       "EXG": 2,
       "DVC": 8,
       "REC": 11,
-      "DIV": 476,
+      "ENS": 476,
       "REG": 2,
       "LR": 37,
       "DVD": 34,
-      "RN": 93
+      "RN": 93,
+      "DIV": 0
     },
     "proportions": {
       "UG": 40.53811659192825,
       "EXG": 0.17937219730941703,
       "DVC": 0.7174887892376681,
       "REC": 0.9865470852017937,
-      "DIV": 42.690582959641254,
+      "ENS": 42.690582959641254,
       "REG": 0.17937219730941703,
       "LR": 3.3183856502242155,
       "DVD": 3.0493273542600896,
-      "RN": 8.340807174887892
+      "RN": 8.340807174887892,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 42.690582959641254,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-19<br><hr>Divers : 42.7% (476 voix)<br>Union de la Gauche / NFP : 40.5% (452 voix)<br>Rassemblement National : 8.3% (93 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-19<br><hr>Ensemble (Majorité Pres.) : 42.7% (476 voix)<br>Union de la Gauche / NFP : 40.5% (452 voix)<br>Rassemblement National : 8.3% (93 voix)<br>"
   },
   {
     "id_bv": "9-20",
@@ -13729,27 +13843,29 @@
       "EXG": 2,
       "DVC": 10,
       "REC": 14,
-      "DIV": 521,
+      "ENS": 521,
       "REG": 0,
       "LR": 42,
       "DVD": 48,
-      "RN": 99
+      "RN": 99,
+      "DIV": 0
     },
     "proportions": {
       "UG": 37.521222410865875,
       "EXG": 0.1697792869269949,
       "DVC": 0.8488964346349746,
       "REC": 1.1884550084889642,
-      "DIV": 44.227504244482176,
+      "ENS": 44.227504244482176,
       "REG": 0.0,
       "LR": 3.5653650254668934,
       "DVD": 4.074702886247878,
-      "RN": 8.404074702886248
+      "RN": 8.404074702886248,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 44.227504244482176,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-20<br><hr>Divers : 44.2% (521 voix)<br>Union de la Gauche / NFP : 37.5% (442 voix)<br>Rassemblement National : 8.4% (99 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-20<br><hr>Ensemble (Majorité Pres.) : 44.2% (521 voix)<br>Union de la Gauche / NFP : 37.5% (442 voix)<br>Rassemblement National : 8.4% (99 voix)<br>"
   },
   {
     "id_bv": "9-21",
@@ -13767,27 +13883,29 @@
       "EXG": 5,
       "DVC": 8,
       "REC": 23,
-      "DIV": 532,
+      "ENS": 532,
       "REG": 2,
       "LR": 24,
       "DVD": 49,
-      "RN": 104
+      "RN": 104,
+      "DIV": 0
     },
     "proportions": {
       "UG": 38.669950738916256,
       "EXG": 0.41050903119868637,
       "DVC": 0.6568144499178982,
       "REC": 1.8883415435139574,
-      "DIV": 43.67816091954023,
+      "ENS": 43.67816091954023,
       "REG": 0.16420361247947454,
       "LR": 1.9704433497536946,
       "DVD": 4.022988505747127,
-      "RN": 8.538587848932677
+      "RN": 8.538587848932677,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 43.67816091954023,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-21<br><hr>Divers : 43.7% (532 voix)<br>Union de la Gauche / NFP : 38.7% (471 voix)<br>Rassemblement National : 8.5% (104 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-21<br><hr>Ensemble (Majorité Pres.) : 43.7% (532 voix)<br>Union de la Gauche / NFP : 38.7% (471 voix)<br>Rassemblement National : 8.5% (104 voix)<br>"
   },
   {
     "id_bv": "9-22",
@@ -13805,27 +13923,29 @@
       "EXG": 5,
       "DVC": 14,
       "REC": 11,
-      "DIV": 480,
+      "ENS": 480,
       "REG": 0,
       "LR": 48,
       "DVD": 51,
-      "RN": 72
+      "RN": 72,
+      "DIV": 0
     },
     "proportions": {
       "UG": 38.648648648648646,
       "EXG": 0.45045045045045046,
       "DVC": 1.2612612612612613,
       "REC": 0.990990990990991,
-      "DIV": 43.24324324324324,
+      "ENS": 43.24324324324324,
       "REG": 0.0,
       "LR": 4.324324324324325,
       "DVD": 4.594594594594595,
-      "RN": 6.486486486486487
+      "RN": 6.486486486486487,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 43.24324324324324,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-22<br><hr>Divers : 43.2% (480 voix)<br>Union de la Gauche / NFP : 38.6% (429 voix)<br>Rassemblement National : 6.5% (72 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-22<br><hr>Ensemble (Majorité Pres.) : 43.2% (480 voix)<br>Union de la Gauche / NFP : 38.6% (429 voix)<br>Rassemblement National : 6.5% (72 voix)<br>"
   },
   {
     "id_bv": "9-23",
@@ -13843,27 +13963,29 @@
       "EXG": 3,
       "DVC": 9,
       "REC": 9,
-      "DIV": 453,
+      "ENS": 453,
       "REG": 0,
       "LR": 45,
       "DVD": 52,
-      "RN": 71
+      "RN": 71,
+      "DIV": 0
     },
     "proportions": {
       "UG": 38.857142857142854,
       "EXG": 0.2857142857142857,
       "DVC": 0.8571428571428572,
       "REC": 0.8571428571428572,
-      "DIV": 43.142857142857146,
+      "ENS": 43.142857142857146,
       "REG": 0.0,
       "LR": 4.285714285714286,
       "DVD": 4.9523809523809526,
-      "RN": 6.761904761904762
+      "RN": 6.761904761904762,
+      "DIV": 0.0
     },
-    "winner_party": "DIV",
+    "winner_party": "ENS",
     "winner_score": 43.142857142857146,
-    "winner_color": "#808080",
-    "top3_html": "<b>Bureau :</b> 9-23<br><hr>Divers : 43.1% (453 voix)<br>Union de la Gauche / NFP : 38.9% (408 voix)<br>Rassemblement National : 6.8% (71 voix)<br>"
+    "winner_color": "#ffc20e",
+    "top3_html": "<b>Bureau :</b> 9-23<br><hr>Ensemble (Majorité Pres.) : 43.1% (453 voix)<br>Union de la Gauche / NFP : 38.9% (408 voix)<br>Rassemblement National : 6.8% (71 voix)<br>"
   },
   {
     "id_bv": "19-7",

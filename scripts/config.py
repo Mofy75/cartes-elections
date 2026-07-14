@@ -60,7 +60,22 @@ COULEURS_NUANCES = {
     "REG": "#c0c0c0",      # Régionalistes
     "SE": "#808080",       # Sans étiquette
     "UNC": "#808080",      # Inconnu
-    "N/A": "#808080"
+    "N/A": "#808080",
+    
+    # Nuances de listes municipales 2026 (préfixées par L)
+    "LUG": "#E40046",      # Liste Union de la Gauche
+    "LUD": "#0066cc",      # Liste Union de la Droite
+    "LUC": "#ffc20e",      # Liste Union du Centre
+    "LDVG": "#ff80a0",     # Liste Divers Gauche
+    "LDVD": "#80c0ff",     # Liste Divers Droite
+    "LDVC": "#ffeb80",     # Liste Divers Centre
+    "LECO": "#00a650",     # Liste Écologiste
+    "LREC": "#8a2be2",     # Liste Reconquête
+    "LRN": "#002e66",      # Liste Rassemblement National
+    "LEXG": "#9b0000",     # Liste Extrême Gauche
+    "LEXD": "#000020",     # Liste Extrême Droite
+    "LREG": "#c0c0c0",     # Liste Régionaliste
+    "LDSV": "#4080ff"      # Liste Droite Souverainiste
 }
 
 # Mapping des candidats aux nuances (Présidentielles 2022)
@@ -109,5 +124,20 @@ NOMS_NUANCES = {
     "DXD": "Extrême droite",
     "DIV": "Divers",
     "REG": "Régionalistes",
-    "SE": "Sans étiquette"
+    "SE": "Sans étiquette",
+    
+    # Noms des nuances municipales 2026
+    "LUG": "Union de la Gauche",
+    "LUD": "Union de la Droite",
+    "LUC": "Union du Centre",
+    "LDVG": "Divers gauche",
+    "LDVD": "Divers droite",
+    "LDVC": "Divers centre",
+    "LECO": "Écologistes",
+    "LREC": "Reconquête!",
+    "LRN": "Rassemblement National",
+    "LEXG": "Extrême gauche",
+    "LEXD": "Extrême droite",
+    "LREG": "Régionalistes",
+    "LDSV": "Droite souverainiste"
 }
