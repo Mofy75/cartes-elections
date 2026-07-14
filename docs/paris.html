@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paris Vote – Cartographie Électorale Interactive (2020-2026)</title>
+  <meta name="description" content="Découvrez les résultats détaillés de toutes les élections parisiennes (municipales, présidentielles, législatives, européennes) de 2020 à 2026 par bureau de vote avec notre carte interactive et dashboard premium.">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Chart.js CDN for interactive doughnut chart -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  
+  <!-- JS Logic -->
+  <script src="stats_data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <!-- Sidebar Controls -->
+  <aside class="sidebar">
+    <div class="logo-container" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+      <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 4px;">
+        <svg viewBox="0 0 24 24" width="16" height="16" style="fill: currentColor;">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+        </svg>
+        Retour au Portail
+      </a>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <div class="logo-icon">🗼</div>
+        <h1 class="logo-text">Paris Vote</h1>
+      </div>
+    </div>
+
+    <!-- Year Selector -->
+    <div class="control-group">
+      <span class="control-label">Année</span>
+      <div class="selector-pills" id="year-pills">
+        <!-- Dyn. generated -->
+      </div>
+    </div>
+
+    <!-- Election Type Selector -->
+    <div class="control-group">
+      <span class="control-label">Élection</span>
+      <div class="selector-pills" id="type-pills">
+        <!-- Dyn. generated -->
+      </div>
+    </div>
+
+    <!-- Tour Selector -->
+    <div class="control-group">
+      <span class="control-label">Scrutin</span>
+      <div class="selector-pills" id="tour-pills">
+        <!-- Dyn. generated -->
+      </div>
+    </div>
+
+    <!-- Affichage de la carte -->
+    <div class="control-group">
+      <span class="control-label">Affichage de la carte</span>
+      <div class="selector-pills" id="layer-pills">
+        <button class="pill-btn active" data-layer="winner" id="layer-winner-btn">Parti en tête</button>
+        <button class="pill-btn" data-layer="abstention" id="layer-abstention-btn">Abstention</button>
+      </div>
+    </div>
+
+    <!-- Sidebar Footer -->
+    <footer class="sidebar-footer">
+      <p>Visualisation cartographique par bureau de vote.</p>
+      <p style="margin-top: 6px;">Données sources : <a href="https://opendata.paris.fr" target="_blank">Paris Data</a> &amp; <a href="https://data.gouv.fr" target="_blank">data.gouv.fr</a>.</p>
+    </footer>
+  </aside>
+
+  <!-- Main View Area -->
+  <main class="main-content">
+    
+    <!-- Top Statistics Cards -->
+    <header class="top-bar">
+      <!-- Winner Card -->
+      <div class="metric-card" id="card-winner">
+        <span class="label">Majorité globale</span>
+        <span class="value" id="stat-winner-name">Chargement...</span>
+        <span class="subtext" id="stat-winner-score">--%</span>
+      </div>
+
+      <!-- Turnout Card -->
+      <div class="metric-card" id="card-turnout">
+        <span class="label">Participation</span>
+        <span class="value" id="stat-turnout">--%</span>
+        <span class="subtext">Taux de participation à Paris</span>
+      </div>
+
+      <!-- Voters Card -->
+      <div class="metric-card" id="card-voters">
+        <span class="label">Électeurs inscrits</span>
+        <span class="value" id="stat-total-inscrits">--</span>
+        <span class="subtext"><span id="stat-exprimes">--</span> exprimés</span>
+      </div>
+    </header>
+
+    <!-- Map & Stats Panel Split Grid -->
+    <div class="dashboard-grid">
+      
+      <!-- Interactive Map Frame -->
+      <section class="map-container">
+        <div class="loader-overlay" id="loader-overlay">
+          <div class="spinner"></div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; font-weight: 500;">Génération de la carte...</p>
+        </div>
+        <iframe class="map-iframe" id="map-iframe" src="about:blank"></iframe>
+      </section>
+
+      <!-- Stats Panel -->
+      <section class="stats-panel">
+        <h2 class="panel-title">Résultats globaux (Paris)</h2>
+        
+        <!-- Doughnut Chart Container -->
+        <div class="chart-container">
+          <canvas id="results-chart"></canvas>
+        </div>
+        
+        <!-- Detailed Party Rankings List -->
+        <div class="party-results-list" id="results-list">
+          <!-- Dyn. generated rows -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+</body>
+</html>

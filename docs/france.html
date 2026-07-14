@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paris Vote – Échelle Nationale</title>
+  <meta name="description" content="Visualisez les statistiques électorales détaillées par commune pour toute la France.">
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="france_style.css">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  
+  <!-- France Stats Data & JS Logic -->
+  <script src="france_stats_data.js" defer></script>
+  <script src="france_app.js" defer></script>
+</head>
+<body>
+
+  <!-- Sidebar Controls -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24" width="18" height="18">
+          <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+        </svg>
+        Retour au Portail
+      </a>
+      <h1 class="sidebar-title">France Vote</h1>
+      <p class="sidebar-subtitle">Résultats par commune (2022-2024)</p>
+    </div>
+
+    <!-- Search Commune Box -->
+    <div class="control-group search-group">
+      <span class="control-label">Rechercher une commune</span>
+      <div class="search-container">
+        <input type="text" id="commune-search" placeholder="Ex: Marseille, Lyon, Bordeaux..." autocomplete="off">
+        <div id="autocomplete-list" class="autocomplete-items"></div>
+      </div>
+    </div>
+
+    <!-- Election Selector -->
+    <div class="control-group">
+      <span class="control-label">Élection</span>
+      <div class="selector-pills" id="election-pills">
+        <button class="pill-btn active" data-election="pres_2022_t1">Présidentielle 2022 (T1)</button>
+        <button class="pill-btn" data-election="pres_2022_t2">Présidentielle 2022 (T2)</button>
+        <button class="pill-btn" data-election="euro_2024">Européennes 2024</button>
+      </div>
+    </div>
+
+    <!-- Active Commune Card Info -->
+    <div id="commune-info-card" class="commune-info-card hidden">
+      <h2 id="info-commune-name">Paris</h2>
+      <p id="info-commune-dep">Département : 75</p>
+    </div>
+
+    <footer class="sidebar-footer">
+      <p>Visualisation par tracé de commune à la demande.</p>
+      <p style="margin-top: 6px;">Données sources : <a href="https://data.gouv.fr" target="_blank">data.gouv.fr</a> &amp; <a href="https://geo.api.gouv.fr" target="_blank">API Géo</a>.</p>
+    </footer>
+  </aside>
+
+  <!-- Main View Area -->
+  <main class="main-content">
+    
+    <!-- Top Statistics Cards -->
+    <header class="top-bar">
+      <!-- Winner Card -->
+      <div class="metric-card" id="card-winner">
+        <span class="metric-label">Force arrivée en tête</span>
+        <span class="metric-val" id="stat-winner-name">Sélectionnez une commune</span>
+        <span class="metric-sub" id="stat-winner-score">-- %</span>
+      </div>
+
+      <!-- Turnout Card -->
+      <div class="metric-card" id="card-turnout">
+        <span class="metric-label">Taux de participation</span>
+        <span class="metric-val" id="stat-turnout">-- %</span>
+        <span class="metric-sub">Taux d'abstention : <span id="stat-abstention">-- %</span></span>
+      </div>
+
+      <!-- Voters Card -->
+      <div class="metric-card" id="card-voters">
+        <span class="metric-label">Votes exprimés</span>
+        <span class="metric-val" id="stat-exprimes">--</span>
+        <span class="metric-sub">Inscrits : <span id="stat-total-inscrits">--</span></span>
+      </div>
+    </header>
+
+    <!-- Map & Detailed Stats Grid -->
+    <div class="grid-layout">
+      <!-- Interactive Leaflet Map Container -->
+      <div class="map-container-wrapper">
+        <div id="leaflet-map" class="map-box"></div>
+      </div>
+
+      <!-- Detailed Results Panel -->
+      <section class="results-panel">
+        <h2 class="panel-title">Détail des votes</h2>
+        <div class="chart-wrapper">
+          <canvas id="results-chart"></canvas>
+        </div>
+        <div class="results-list" id="results-list">
+          <div style="color: var(--text-muted); font-size: 0.9rem; text-align: center; margin-top: 50px;">
+            Recherchez et sélectionnez une commune pour afficher les résultats.
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</body>
+</html>
