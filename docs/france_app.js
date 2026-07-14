@@ -46,12 +46,17 @@ const NOMS_NUANCES = {
   "DSV": "N. Dupont-Aignan (DSV)",
   "NPA": "Philippe Poutou (NPA)",
   "LO": "Nathalie Arthaud (LO)",
-  "Autre": "Autres candidats"
+  "Autre": "Autres candidats / listes"
 };
+
+// Mappages d'ordres fixes
+const ORDER_PRES_2022_T1 = ["LO", "PCF", "ENS", "DVD", "RN", "REC", "LFI", "PS", "VEC", "LR", "NPA", "DSV"];
+const ORDER_PRES_2022_T2 = ["ENS", "RN"];
+const ORDER_EURO_2024 = ["LRN", "LENS", "LUG", "LFI", "LLR", "LVEC", "LREC", "LCOM", "Autre"];
 
 // Variables d'état
 let selectedElection = "pres_2022_t1";
-let activeInsee = null;
+let activeInsee = "00000"; // France entière par défaut
 let map = null;
 let polygonLayer = null;
 let myChart = null;
@@ -64,12 +69,7 @@ const electionPills = document.getElementById("election-pills");
 const infoCard = document.getElementById("commune-info-card");
 const infoName = document.getElementById("info-commune-name");
 const infoDep = document.getElementById("info-commune-dep");
-
-function showLoader(show) {
-  if (loaderOverlay) {
-    loaderOverlay.classList.toggle("active", show);
-  }
-}
+const btnResetFrance = document.getElementById("btn-reset-france");
 
 const statWinnerName = document.getElementById("stat-winner-name");
 const statWinnerScore = document.getElementById("stat-winner-score");
@@ -83,6 +83,45 @@ const resultsList = document.getElementById("results-list");
 function formatNumber(num) {
   if (num === null || num === undefined) return "--";
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+function showLoader(show) {
+  if (loaderOverlay) {
+    loaderOverlay.classList.toggle("active", show);
+  }
+}
+
+// Reconstituer l'objet de votes depuis le tableau compressé
+function getElectionVotes(communeStats, electionKey) {
+  const key = electionKey === "pres_2022_t1" ? "p1" : (electionKey === "pres_2022_t2" ? "p2" : "eu");
+  const rawData = communeStats[key];
+  if (!rawData) return null;
+  
+  const inscrits = rawData[0];
+  const votants = rawData[1];
+  const exprimes = rawData[2];
+  const votesArray = rawData[3];
+  
+  const votesObj = {};
+  let candidatesOrder = [];
+  if (key === "p1") {
+    candidatesOrder = ORDER_PRES_2022_T1;
+  } else if (key === "p2") {
+    candidatesOrder = ORDER_PRES_2022_T2;
+  } else {
+    candidatesOrder = ORDER_EURO_2024;
+  }
+  
+  candidatesOrder.forEach((c, idx) => {
+    votesObj[c] = votesArray[idx] || 0;
+  });
+  
+  return {
+    inscrits,
+    votants,
+    exprimes,
+    votes: votesObj
+  };
 }
 
 // Initialisation de la carte Leaflet
@@ -107,6 +146,7 @@ function initSearch() {
     // Filtrer les communes correspondantes dans FRANCE_STATS
     const matches = [];
     for (const [insee, data] of Object.entries(FRANCE_STATS)) {
+      if (insee === "00000") continue; // Exclure l'agrégat France
       const name = data.n.toLowerCase();
       if (name.includes(query) || insee.startsWith(query)) {
         matches.push({ insee, name: data.n, dep: data.d });
@@ -142,48 +182,66 @@ function initSearch() {
   });
 }
 
-// Sélectionner une commune et charger sa géométrie + statistiques
+// Sélectionner une commune (ou la France entière) et charger sa géométrie + statistiques
 async function selectCommune(insee) {
   if (!insee) return;
 
-  // 1. Tracer le polygone géométrique de la commune
-  try {
-    const geoUrl = `https://geo.api.gouv.fr/communes/${insee}?format=geojson&geometry=contour`;
-    const res = await fetch(geoUrl);
-    if (!res.ok) throw new Error("Géométrie introuvable");
-    const geojson = await res.json();
-
+  if (insee === "00000") {
+    // Mode France Entière
+    btnResetFrance.style.display = "none";
+    infoCard.classList.remove("hidden");
+    infoName.textContent = "France entière";
+    infoDep.textContent = "Échelle Nationale (Données Consolidées)";
+    
     if (polygonLayer) {
       map.removeLayer(polygonLayer);
+      polygonLayer = null;
     }
-
-    // Récupérer la couleur du gagnant
-    const stats = FRANCE_STATS[insee];
-    const electionData = stats ? stats[selectedElection] : null;
-    let winnerColor = "#808080";
     
-    if (electionData && electionData.vt) {
-      const sorted = Object.entries(electionData.vt).sort((a,b) => b[1] - a[1]);
-      if (sorted.length > 0) {
-        winnerColor = COULEURS_NUANCES[sorted[0][0]] || "#808080";
+    // Zoomer à l'échelle de la France
+    map.setView([46.2276, 2.2137], 6);
+  } else {
+    // Mode Commune spécifique
+    btnResetFrance.style.display = "flex";
+    
+    try {
+      const geoUrl = `https://geo.api.gouv.fr/communes/${insee}?format=geojson&geometry=contour`;
+      const res = await fetch(geoUrl);
+      if (!res.ok) throw new Error("Géométrie introuvable");
+      const geojson = await res.json();
+
+      if (polygonLayer) {
+        map.removeLayer(polygonLayer);
       }
+
+      // Récupérer la couleur du gagnant
+      const stats = FRANCE_STATS[insee];
+      const electionData = getElectionVotes(stats, selectedElection);
+      let winnerColor = "#808080";
+      
+      if (electionData && electionData.votes) {
+        const sorted = Object.entries(electionData.votes).sort((a,b) => b[1] - a[1]);
+        if (sorted.length > 0) {
+          winnerColor = COULEURS_NUANCES[sorted[0][0]] || "#808080";
+        }
+      }
+
+      // Créer la couche vectorielle de la commune
+      polygonLayer = L.geoJSON(geojson, {
+        style: {
+          fillColor: winnerColor,
+          color: "#ffffff",
+          weight: 1.5,
+          fillOpacity: 0.6
+        }
+      }).addTo(map);
+
+      // Zoomer sur la commune
+      map.fitBounds(polygonLayer.getBounds(), { padding: [30, 30] });
+
+    } catch (error) {
+      console.warn("Impossible de charger la géométrie du contour :", error);
     }
-
-    // Créer la couche vectorielle de la commune
-    polygonLayer = L.geoJSON(geojson, {
-      style: {
-        fillColor: winnerColor,
-        color: "#ffffff",
-        weight: 1.5,
-        fillOpacity: 0.6
-      }
-    }).addTo(map);
-
-    // Zoomer sur la commune
-    map.fitBounds(polygonLayer.getBounds(), { padding: [30, 30] });
-
-  } catch (error) {
-    console.warn("Impossible de charger la géométrie du contour :", error);
   }
 
   // 2. Afficher les statistiques
@@ -195,16 +253,16 @@ function updateStatsUI() {
   if (!activeInsee || !FRANCE_STATS[activeInsee]) return;
 
   const stats = FRANCE_STATS[activeInsee];
-  const electionData = stats[selectedElection];
+  const electionData = getElectionVotes(stats, selectedElection);
 
   if (!electionData) {
     displayEmptyStats();
     return;
   }
 
-  const inscrits = electionData.i;
-  const votants = electionData.v;
-  const exprimes = electionData.e;
+  const inscrits = electionData.inscrits;
+  const votants = electionData.votants;
+  const exprimes = electionData.exprimes;
   
   const turnoutRate = inscrits > 0 ? (votants / inscrits) * 100 : 0.0;
   const abstentionRate = 100.0 - turnoutRate;
@@ -215,7 +273,7 @@ function updateStatsUI() {
   statExprimes.textContent = formatNumber(exprimes);
 
   // Trier les partis par nombre de voix
-  const sortedParties = Object.entries(electionData.vt)
+  const sortedParties = Object.entries(electionData.votes)
     .map(([party, votes]) => {
       const pct = exprimes > 0 ? (votes / exprimes) * 100 : 0.0;
       return { party, votes, pct };
@@ -231,11 +289,6 @@ function updateStatsUI() {
     statWinnerName.textContent = winnerName;
     statWinnerName.style.color = winnerColor;
     statWinnerScore.textContent = `${winner.pct.toFixed(1)} %`;
-
-    // Mettre à jour la couleur du polygone si présent
-    if (polygonLayer) {
-      polygonLayer.setStyle({ fillColor: winnerColor });
-    }
   } else {
     statWinnerName.textContent = "Aucun";
     statWinnerName.style.color = "inherit";
@@ -294,8 +347,7 @@ function renderChart(sortedParties) {
     myChart.destroy();
   }
 
-  // Filtrer les forces représentatives pour le graphique
-  const labels = sortedParties.map(p => p.party);
+  const labels = sortedParties.map(p => NOMS_NUANCES[p.party] || p.party);
   const data = sortedParties.map(p => p.pct);
   const colors = sortedParties.map(p => COULEURS_NUANCES[p.party] || "#808080");
 
@@ -336,25 +388,27 @@ Array.from(electionPills.children).forEach(btn => {
     Array.from(electionPills.children).forEach(b => {
       b.classList.toggle("active", b.dataset.election === selectedElection);
     });
-    // Recharger la commune active avec la nouvelle élection
     if (activeInsee) {
       selectCommune(activeInsee);
     }
   };
 });
 
+// Bouton de réinitialisation à la France entière
+btnResetFrance.onclick = () => {
+  activeInsee = "00000";
+  searchInput.value = "";
+  selectCommune("00000");
+};
+
 // Lancement au chargement de la page
 window.onload = () => {
   initMap();
   initSearch();
   
-  // Charger Paris par défaut à l'ouverture pour animer l'interface
-  activeInsee = "75056";
-  searchInput.value = "Paris (75)";
-  infoCard.classList.remove("hidden");
-  infoName.textContent = "Paris";
-  infoDep.textContent = "Département : 75 | Code INSEE : 75056";
-  selectCommune("75056");
+  // Charger la France entière par défaut à l'ouverture
+  activeInsee = "00000";
+  selectCommune("00000");
   
   // Masquer le loader de chargement initial
   showLoader(false);
